@@ -1,0 +1,128 @@
+services:
+  reverse-proxy:
+    image: nginx:1.27-alpine
+    container_name: faster-proxy
+    restart: unless-stopped
+    environment:
+      NGINX_SERVER_NAME: ${NGINX_SERVER_NAME:-localhost}
+      TLS_CERT_FILENAME: ${TLS_CERT_FILENAME:-localhost.crt}
+      TLS_KEY_FILENAME: ${TLS_KEY_FILENAME:-localhost.key}
+      NGINX_CLIENT_MAX_BODY_SIZE: ${NGINX_CLIENT_MAX_BODY_SIZE:-1024m}
+    ports:
+      - "${HTTPS_PORT:-8443}:443"
+    volumes:
+      - ./deploy/nginx/default.conf.template:/etc/nginx/templates/default.conf.template:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      faster-app:
+        condition: service_started
+      job-manager-api:
+        condition: service_started
+    networks:
+      - faster-net
+
+  faster-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    container_name: faster-app
+    restart: unless-stopped
+    environment:
+      FL_SECRET_KEY: ${FL_SECRET_KEY}
+      FASTER_DB_HOST: ${FASTER_DB_HOST:-mariadb}
+      FASTER_DB_PORT: ${FASTER_DB_PORT:-3306}
+      FASTER_DB_USER: ${FASTER_DB_USER}
+      FASTER_DB_PASSWORD: ${FASTER_DB_PASSWORD}
+      FASTER_DB_NAME: ${FASTER_DB_NAME:-faster}
+      FASTER_DB_CONNECT_TIMEOUT: ${FASTER_DB_CONNECT_TIMEOUT:-8}
+      FASTER_DB_POOL_SIZE: ${FASTER_DB_POOL_SIZE:-10}
+      FL_API_BODY_MAX_BYTES: ${FL_API_BODY_MAX_BYTES:-0}
+      FL_CUSTOM_DATASET_UPLOAD_MAX_BYTES: ${FL_CUSTOM_DATASET_UPLOAD_MAX_BYTES:-0}
+      FL_AUTH_ALLOW_WEAK_PASSWORDS: ${FL_AUTH_ALLOW_WEAK_PASSWORDS:-0}
+      FASTER_ADMIN_USERNAME: ${FASTER_ADMIN_USERNAME:-admin}
+      FASTER_ADMIN_PASSWORD: ${FASTER_ADMIN_PASSWORD:-}
+      FASTER_ADMIN_EMAIL: ${FASTER_ADMIN_EMAIL:-}
+      JM_API_BASE_URL: ${JM_API_BASE_URL:-http://job-manager-api:5000}
+      JM_API_TIMEOUT: ${JM_API_TIMEOUT:-8}
+      JM_SERVICE_USERNAME: ${JM_SERVICE_USERNAME}
+      JM_SERVICE_PASSWORD: ${JM_SERVICE_PASSWORD}
+      FL_JM_SOURCE_APP: ${FL_JM_SOURCE_APP:-faster}
+      NVIDIA_VISIBLE_DEVICES: ${NVIDIA_VISIBLE_DEVICES:-all}
+      NVIDIA_DRIVER_CAPABILITIES: ${NVIDIA_DRIVER_CAPABILITIES:-compute,utility}
+    gpus: all
+    volumes:
+      - faster_results:/app/results
+      - ./config.yaml:/app/config.yaml:ro
+      - ./scenarios:/app/scenarios
+      - ./data:/app/data
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    networks:
+      - faster-net
+
+  job-manager-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    container_name: job-manager-api
+    restart: unless-stopped
+    working_dir: /app/job_manager
+    command: ["uvicorn", "api.run:app", "--host", "0.0.0.0", "--port", "5000"]
+    environment:
+      PYTHONPATH: /app
+      PYTHONUNBUFFERED: "1"
+      DB_HOST: ${JM_DB_HOST:-mariadb}
+      DB_PORT: ${JM_DB_PORT:-3306}
+      DB_USER: ${JM_DB_USER:-faster_app}
+      DB_PASSWORD: ${JM_DB_PASSWORD}
+      DB_NAME: ${JM_DB_NAME:-faster}
+      JWT_SECRET: ${JM_JWT_SECRET}
+      NVIDIA_VISIBLE_DEVICES: ${NVIDIA_VISIBLE_DEVICES:-all}
+      NVIDIA_DRIVER_CAPABILITIES: ${NVIDIA_DRIVER_CAPABILITIES:-compute,utility}
+    gpus: all
+    volumes:
+      - ./job_manager/config.yaml:/app/job_manager/config.yaml:ro
+      - faster_results:/app/results
+      - ./data:/app/data
+      - jobs_data:/app/job_manager/jobs
+      - jm_logs:/app/job_manager/logs
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    networks:
+      - faster-net
+
+  mariadb:
+    image: mariadb:11.4
+    container_name: faster-mariadb
+    restart: unless-stopped
+    command:
+      - mariadbd
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE:-faster}
+      MARIADB_USER: ${MARIADB_USER:-faster_app}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./database/schema/baseline.sql:/docker-entrypoint-initdb.d/010-faster-schema.sql:ro
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MARIADB_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    networks:
+      - faster-net
+
+volumes:
+  mariadb_data:
+  faster_results:
+  jobs_data:
+  jm_logs:
+
+networks:
+  faster-net:
+    driver: bridge

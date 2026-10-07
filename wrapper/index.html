@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASTER</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/wrapper/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/wrapper/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/wrapper/images/favicon_io/favicon-16x16.png">
+    <link rel="shortcut icon" href="/wrapper/images/favicon_io/favicon.ico">
+    <link rel="manifest" href="/wrapper/images/favicon_io/site.webmanifest">
+
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <link rel="preload" href="/wrapper/css/styles.css" as="style">
+    <link rel="preload" href="/wrapper/images/logo.png" as="image" fetchpriority="high">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/python/python.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/yaml/yaml.js"></script>
+    <link rel="stylesheet" href="/wrapper/css/styles.css?v=version_1.0">
+</head>
+<body class="bg-blue-50 text-slate-900 min-h-screen">
+    <!-- Toast notifications (always in DOM) -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- App root — replaced by JS -->
+    <div id="app"></div>
+
+    <!-- Scripts loaded in dependency order -->
+    <script defer src="/wrapper/js/api.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/auth.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/charts.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/ui_data.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/render.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/jobs.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/events.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/client_learning_rate.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/setup_custom_dataset.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/setup.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/datasets.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/history_list.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/history.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/training_scenarios.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/training.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/runtime.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/modules/mobile_select.module.js?v=version_1.0"></script>
+    <script defer src="/wrapper/js/app.js?v=version_1.0"></script>
+</body>
+</html>

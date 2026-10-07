@@ -1,0 +1,114 @@
+<div class="landing-shell min-h-screen bg-blue-50 text-slate-900">
+    <header class="sticky top-0 z-40 bg-blue-100 border-b border-blue-200">
+        <div class="w-full px-6 lg:px-10 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 text-blue-950">
+                <img src="/wrapper/images/logo.png" alt="FASTER logo" class="w-7 h-7 object-contain">
+                <span class="text-lg font-bold tracking-tight">FASTER</span>
+            </div>
+            <div class="ml-auto landing-desktop-nav items-center gap-7">
+                <nav class="flex items-center gap-4 md:gap-7 text-sm font-medium text-slate-600 flex-wrap justify-end">
+                    <a href="/Faster/Documentation" class="hover:text-blue-800 transition-colors">Documentation</a>
+                    <a href="/Faster/Creators" class="hover:text-blue-800 transition-colors">Creators</a> 
+                    <a href="/Faster/Contribute" class="hover:text-blue-800 transition-colors">Contribute</a> 
+                </nav>
+                <a href="/Faster/Signin" class="ui-btn-compact ui-btn-primary public-nav-cta">Access Workspace</a>
+            </div>
+            <button id="landing-mobile-menu-btn" class="landing-mobile-menu-btn ui-btn-primary public-nav-mobile">Menu</button>
+        </div>
+        <div id="landing-mobile-menu-panel" class="hidden md:hidden px-4 pb-3">
+            <div class="bg-white border border-blue-100 rounded-lg p-2 space-y-1 text-sm">
+                <a href="/Faster/Documentation" class="block px-3 py-2 rounded hover:bg-blue-50">Documentation</a>
+                <a href="/Faster/Creators" class="block px-3 py-2 rounded hover:bg-blue-50">Creators</a>
+                <a href="/Faster/Contribute" class="block px-3 py-2 rounded hover:bg-blue-50">Contribute</a>
+                <a href="/Faster/Signin" class="block px-3 py-2 rounded text-blue-900 font-semibold hover:bg-blue-50">Access Workspace</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="w-full px-6 lg:px-10 pt-8 pb-16">
+        <div class="relative w-full py-20 px-6 md:py-28 md:px-14 text-center mb-20 overflow-hidden">
+            
+            <div class="relative z-10">
+                <h1 class="landing-hero-title text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-6 max-w-4xl mx-auto text-blue-950 drop-shadow-sm">
+                    Federated Aggregation, Simulation,<br class="hidden sm:block" /> TEsting, and Reporting
+                </h1>
+                
+                <h2 class="text-blue-700 font-medium text-sm md:text-base max-w-2xl mx-auto mb-14 leading-relaxed tracking-wide drop-shadow-sm">
+                    The <strong>FASTER</strong> virtual lab supports reproducible federated-learning experiments with configurable aggregation, dataset management, run monitoring, and artifact review.
+                </h2>
+                
+                <button id="login-accordion-toggle" type="button" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-950/80 border border-blue-500 text-blue-400 font-mono text-sm shadow-[0_0_15px_rgba(59,130,246,0.15)] backdrop-blur-sm transition-all duration-300 ease-out hover:bg-blue-600 hover:text-white hover:border-blue-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:-translate-y-1.5 group">
+                    <i class="ph ph-sign-in text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                    <span class="font-semibold tracking-wider">LOGIN</span>
+                    <i id="login-accordion-chevron" class="ph ph-caret-down transition-transform duration-200"></i>
+                </button>
+
+                <div class="max-w-xl mx-auto login-accordion mt-5" id="login-card-wrap" aria-hidden="true">
+                    <div class="bg-white border border-blue-100 rounded-2xl p-8 w-full text-left public-surface-card" id="login-card">
+                        <h2 class="text-xl font-semibold mb-1 text-blue-950">Access Workspace</h2>
+                        <p class="text-sm text-slate-500 mb-6">Sign in with your username or email to enter the FASTER workspace.</p>
+                        <form id="login-form" class="space-y-4">
+                            <input id="login-user" type="text" placeholder="Email or username" class="fl-input w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" autocomplete="username">
+                            <input id="login-pass" type="password" placeholder="Password" class="fl-input w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" autocomplete="current-password">
+                            <p id="login-msg" class="text-red-500 text-xs hidden"></p>
+                            <button type="submit" class="ui-btn-compact ui-btn-primary ui-btn-fill text-sm mt-2">
+                                <i class="ph ph-sign-in"></i> Login
+                            </button>
+                        </form>
+
+                        <p class="text-xs text-slate-400 mt-5 text-center flex items-center justify-center gap-1.5">
+                            <i class="ph ph-lock-key"></i> Instance locked. Contact your infrastructure admin for provisioning.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-20">
+            <article class="bg-white border border-blue-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow public-surface-card">
+                <i class="ph ph-tree-structure text-4xl text-blue-700"></i>
+                <h3 class="mt-5 text-xl font-semibold text-blue-950">Standardized Benchmarking</h3>
+                <p class="mt-3 text-slate-600 text-sm leading-relaxed">Evaluate state-of-the-art aggregation strategies (FedAvg, FedProx, FedNova, FedGP) in a modular, reproducible environment to identify the most effective approaches.</p>
+            </article>
+            
+            <article class="bg-white border border-blue-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow public-surface-card">
+                <i class="ph ph-activity text-4xl text-blue-700"></i>
+                <h3 class="mt-5 text-xl font-semibold text-blue-950">Realistic Experiment Setup</h3>
+                <p class="mt-3 text-slate-600 text-sm leading-relaxed">Configure IID or non-IID data partitions, client churn, per-client learning rates, and repeat runs to study behavior under controlled conditions.</p>
+            </article>
+            
+            <article class="bg-white border border-blue-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow public-surface-card">
+                <i class="ph ph-shield-warning text-4xl text-blue-700"></i>
+                <h3 class="mt-5 text-xl font-semibold text-blue-950">Traceable Evaluation</h3>
+                <p class="mt-3 text-slate-600 text-sm leading-relaxed">Track reproducible experiment outputs, validation metrics, and comparison reports to study model behavior under controlled scenarios.</p>
+            </article>
+        </div>
+
+        <div class="bg-white border border-blue-100 rounded-3xl p-10 md:p-14 mb-20 shadow-sm public-surface-card">
+            <h2 class="text-3xl font-semibold text-blue-950 text-center mb-10">Execution Pipeline</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14 text-center">
+                <div>
+                    <p class="text-blue-600 font-mono text-xs tracking-wider font-semibold mb-2">STEP 01</p>
+                    <i class="ph ph-shield-check text-4xl text-blue-900"></i>
+                    <p class="mt-4 text-slate-800 font-medium">Secure Access</p>
+                    <p class="text-sm text-slate-500 mt-2">Authenticate to your provisioned workspace.</p>
+                </div>
+                <div class="relative">
+                    <div class="hidden md:block absolute top-12 -left-8 w-16 h-[1px] bg-blue-100"></div>
+                    <p class="text-blue-600 font-mono text-xs tracking-wider font-semibold mb-2">STEP 02</p>
+                    <i class="ph ph-faders text-4xl text-blue-900"></i>
+                    <p class="mt-4 text-slate-800 font-medium">Configure Scenario</p>
+                    <p class="text-sm text-slate-500 mt-2">Define data partitions, aggregation methods, and evaluation settings.</p>
+                </div>
+                <div class="relative">
+                    <div class="hidden md:block absolute top-12 -left-8 w-16 h-[1px] bg-blue-100"></div>
+                    <p class="text-blue-600 font-mono text-xs tracking-wider font-semibold mb-2">STEP 03</p>
+                    <i class="ph ph-rocket-launch text-4xl text-blue-900"></i>
+                    <p class="mt-4 text-slate-800 font-medium">Simulate & Benchmark</p>
+                    <p class="text-sm text-slate-500 mt-2">Deploy the FL pipeline and track automated metrics and reports.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>

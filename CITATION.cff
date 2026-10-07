@@ -1,0 +1,55 @@
+# How to cite this software.
+#
+# Citation File Format 1.2.0 — https://citation-file-format.github.io
+# GitHub renders a "Cite this repository" button from this file.
+#
+# This describes the software, not a paper: there is deliberately no
+# 'preferred-citation' here, so the button always offers the software itself.
+# Papers to cite alongside it are listed in the README's Citation section.
+#
+# The author order is deliberate, and 'pyproject.toml' repeats the version
+# below, so the two change together.
+
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: "FASTER"
+abstract: >-
+  A browser-based platform for running, managing, and reviewing federated-learning
+  experiments. A single-page dashboard drives a database-backed application layer and
+  a bundled Job Manager that queues training jobs, launches workers, and persists
+  shared state, so an experiment is configured, submitted, monitored, and exported
+  without leaving the browser. Alongside the standard aggregation baselines it ships
+  FedGP, an evolutionary aggregation method that searches for the aggregation function
+  with genetic programming.
+type: software
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/HISTLab-hevs/FASTER"
+keywords:
+  - federated learning
+  - genetic programming
+  - evolutionary computation
+  - model aggregation
+  - reproducibility
+
+authors:
+  - given-names: Elia
+    family-names: Pacioni
+    email: elia.pacioni@hevs.ch
+    orcid: "https://orcid.org/0000-0002-1557-4870"
+    affiliation: "HES-SO Valais-Wallis, Sion, Switzerland; Universidad de Extremadura, Mérida, Spain"
+  - given-names: Valerio
+    family-names: Crocetti
+    email: valerio.crocetti@hevs.ch
+    orcid: "https://orcid.org/0009-0002-3760-6041"
+    affiliation: "HES-SO Valais-Wallis, Sion, Switzerland; Università Politecnica delle Marche, Ancona, Italy"
+  - given-names: Francisco
+    family-names: Fernández de Vega
+    email: fcofdez@unex.es
+    orcid: "https://orcid.org/0000-0002-1086-1483"
+    affiliation: "Universidad de Extremadura, Mérida, Spain"
+  - given-names: Davide
+    family-names: Calvaresi
+    email: davide.calvaresi@hevs.ch
+    orcid: "https://orcid.org/0000-0001-9816-7439"
+    affiliation: "HES-SO Valais-Wallis, Sion, Switzerland"

@@ -1,0 +1,24 @@
+[project]
+name = "simple-job-manager"
+version = "0.1.0"
+description = "Simple, generic job queue manager with REST API"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.34",
+    "python-multipart>=0.0.18",
+    "pymysql>=1.1",
+    "bcrypt>=4.0",
+    "pyjwt>=2.8",
+    "requests>=2.31",
+    "pyyaml>=6.0",
+    "dbutils>=3.1",
+]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=7.0",
+    "sphinx-rtd-theme>=2.0",
+    "sphinx-autodoc-typehints>=2.0",
+]

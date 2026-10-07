@@ -1,0 +1,90 @@
+FASTER — third-party notices
+============================
+
+FASTER itself is MIT licensed; see LICENSE. This file records the third-party
+material the repository redistributes, what the dashboard loads at runtime, and
+the licence review behind the dependencies it requires.
+
+
+1. Redistributed material
+-------------------------
+
+Contributor Covenant 2.1
+    CODE_OF_CONDUCT.md is adapted from it.
+
+    Licence:  CC BY 4.0
+    Source:   https://www.contributor-covenant.org/version/2/1/code_of_conduct/
+
+    The attribution line at the foot of that file is the requirement; this entry
+    records the licence it is an attribution to.
+
+
+2. Loaded at runtime, not redistributed
+---------------------------------------
+
+wrapper/index.html fetches these from cdn.jsdelivr.net when the dashboard is
+opened, the only external origin the Content-Security-Policy in
+web_backend/app.py allows. No copy of them is in this repository, so no licence
+obligation attaches to it; they are listed because someone running the dashboard
+is entitled to know what it pulls in.
+
+    Chart.js 4.4.0            MIT    https://www.chartjs.org
+    CodeMirror 5.65.16        MIT    https://codemirror.net/5/
+    Phosphor Icons web 2.1.1  MIT    https://phosphoricons.com
+    Tailwind CSS 2.2.19       MIT    https://tailwindcss.com
+
+A deployment that must not reach a CDN has to vendor these and tighten that
+policy; nothing else in the stack makes an outbound request to serve a page.
+
+
+3. Dependency licence review
+----------------------------
+
+Reviewed 2026-10-07 over the 110 distributions pinned by uv.lock.
+
+    BSD-family       torch, torchvision, numpy, scipy, scikit-learn, pandas,
+                     matplotlib, uvicorn, starlette, httpx, Jinja2, click, ...
+    MIT              fastapi, pydantic, PyJWT, PyMySQL, DBUtils, PyYAML, pytest,
+                     python-multipart, GPUtil, ...
+    Apache-2.0       bcrypt, requests, torchmetrics, medmnist, fire, tzdata, ...
+    PSF-2.0          typing_extensions
+    HPND             pillow
+    dual             cryptography (Apache-2.0 OR BSD-3-Clause), packaging
+
+Four entries are not plain permissive and are the reason this section exists.
+
+mysql-connector-python, GPLv2 with the FOSS License Exception
+    Oracle's MariaDB/MySQL driver, imported optionally by
+    database/connection.py for its connection pooling. PyMySQL (MIT) is the
+    driver the Job Manager uses, and the code degrades to no pooling when the
+    connector is absent.
+
+    GPLv2 alone would be incompatible with distributing FASTER under MIT. The
+    FOSS License Exception Oracle attaches to it is what makes this fine: it
+    permits linking from software released under a listed FOSS licence, and MIT
+    is on that list. The obligation stays with the driver and does not reach
+    FASTER's own source.
+
+deap, LGPL-3.0
+    The genetic-programming engine behind FedGP (utils/gp.py). FASTER imports
+    it; it is not modified and not statically linked. LGPL's copyleft attaches to
+    DEAP's own files, so it constrains neither FASTER's licence nor an
+    application built on FASTER. Modifying DEAP itself would change that.
+
+certifi (MPL-2.0) and tqdm (MPL-2.0 AND MIT)
+    File-level copyleft: the obligation attaches to their files and only if
+    those files are modified, which does not happen here. They impose nothing on
+    MIT-licensed source that merely imports them.
+
+Separately, torch pulls in twelve nvidia-*-cu12 CUDA wheels on Linux. These are
+NVIDIA proprietary, redistributable under the CUDA EULA but not open source, and
+they are copied into the faster-app and job-manager-api images. Anyone
+redistributing those images is redistributing them too, under NVIDIA's terms
+rather than MIT. A CPU-only build (see the GPU note in the README quickstart)
+avoids them entirely.
+
+No GPL or AGPL obligation reaches FASTER's own source. Nothing in the set
+constrains redistributing FASTER under the MIT licence.
+
+This review is a snapshot, not a guarantee. Re-run it when uv.lock changes in a
+way that adds a distribution, and record the date above.

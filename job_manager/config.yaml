@@ -1,0 +1,61 @@
+apps:
+  faster:
+    notify_mode: polling
+    allowed_ips: []
+  example-callback:
+    callback_url: http://localhost:6000/api/job-completed
+    notify_mode: callback
+    allowed_ips:
+      - 127.0.0.1
+
+max_concurrent_jobs: 1
+
+# Command to execute for each job. Receives env vars:
+#   JOB_ID, JOB_DIR, JOB_INPUT_PATH, JOB_USER_ID, JOB_TYPE,
+#   JOB_SOURCE_APP, JOB_OUTPUT_DIR
+# In the integrated FASTER stack, this runs the standard training workload.
+job_command: 'python3 -u /app/main.py --config "$JOB_INPUT_PATH" --save_path "$JOB_OUTPUT_DIR"'
+
+# Maximum time (seconds) a job command can run before being killed.
+job_timeout_seconds: 36000
+
+job_base_path: jobs/
+
+# Max upload size in MB
+max_upload_size_mb: 50
+
+# IPs of reverse proxies trusted for X-Forwarded-For
+trusted_proxies:
+  - 127.0.0.1
+  - "::1"
+
+# Logging
+log_file: logs/api.log
+log_level: INFO
+
+database:
+  host: 127.0.0.1
+  port: 3306
+  user: faster_app
+  password: change-faster-db-password
+  database: faster
+
+jwt:
+  secret: "change-this-secret-in-production"
+  expiration_hours: 24
+
+debug: true
+
+# Callback retry settings
+callback_max_retries: 3
+callback_retry_delay_seconds: 2
+max_callback_size_kb: 5000
+
+# Rate limiting for /auth/login (per IP)
+login_rate_limit: 10           # max attempts
+login_rate_window_seconds: 300 # within this window
+
+simulation:
+  enabled: false
+  delay_seconds: 1
+  fixture_output_path: ./fake_output

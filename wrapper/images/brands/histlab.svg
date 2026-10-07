@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 283.46 327.32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #07a7d3;
+      }
+
+      .cls-2 {
+        fill: url(#Sfumatura_senza_nome_21);
+      }
+
+      .cls-3 {
+        fill: url(#Sfumatura_senza_nome_11);
+      }
+
+      .cls-4 {
+        fill: #0685c1;
+      }
+
+      .cls-5 {
+        fill: url(#Sfumatura_senza_nome_21-2);
+      }
+
+      .cls-6 {
+        fill: url(#Sfumatura_senza_nome_21-3);
+      }
+
+      .cls-7 {
+        fill: url(#Sfumatura_senza_nome_21-4);
+      }
+
+      .cls-8 {
+        fill: #193358;
+      }
+
+      .cls-9 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-10 {
+        fill: #28bad7;
+      }
+
+      .cls-11 {
+        fill: #1b3866;
+      }
+
+      .cls-12 {
+        fill: #56c2df;
+      }
+
+      .cls-13 {
+        fill: url(#Sfumatura_senza_nome_188);
+      }
+
+      .cls-14 {
+        fill: url(#Sfumatura_senza_nome_213);
+      }
+
+      .cls-15 {
+        fill: url(#Sfumatura_senza_nome_208);
+      }
+
+      .cls-16 {
+        fill: url(#Sfumatura_senza_nome_205);
+      }
+
+      .cls-17 {
+        fill: url(#Sfumatura_senza_nome_107);
+      }
+    </style>
+    <linearGradient id="Sfumatura_senza_nome_208" data-name="Sfumatura senza nome 208" x1="141.73" y1="25.51" x2="201.76" y2="25.51" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b355e"/>
+      <stop offset=".98" stop-color="#1381b1"/>
+    </linearGradient>
+    <linearGradient id="Sfumatura_senza_nome_107" data-name="Sfumatura senza nome 107" x1="173.42" y1="183.38" x2="226.77" y2="183.38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b355e"/>
+      <stop offset=".77" stop-color="#1381b1"/>
+      <stop offset=".82" stop-color="#137cac"/>
+      <stop offset=".87" stop-color="#166f9e"/>
+      <stop offset=".93" stop-color="#1a5887"/>
+      <stop offset=".99" stop-color="#203a67"/>
+      <stop offset="1" stop-color="#223360"/>
+    </linearGradient>
+    <linearGradient id="Sfumatura_senza_nome_11" data-name="Sfumatura senza nome 11" x1="0" y1="49.1" x2="141.73" y2="49.1" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1c355f"/>
+      <stop offset="1" stop-color="#0d4377"/>
+    </linearGradient>
+    <linearGradient id="Sfumatura_senza_nome_21" data-name="Sfumatura senza nome 21" x1="14.17" y1="245.49" x2="14.17" y2="81.83" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#223360"/>
+      <stop offset="1" stop-color="#181a34"/>
+    </linearGradient>
+    <linearGradient id="Sfumatura_senza_nome_21-2" data-name="Sfumatura senza nome 21" x1="0" y1="261.85" x2="85.04" y2="261.85" xlink:href="#Sfumatura_senza_nome_21"/>
+    <linearGradient id="Sfumatura_senza_nome_188" data-name="Sfumatura senza nome 188" x1="131.74" y1="186.1" x2="131.74" y2="306.13" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b355e"/>
+      <stop offset="1" stop-color="#156b91"/>
+    </linearGradient>
+    <linearGradient id="Sfumatura_senza_nome_213" data-name="Sfumatura senza nome 213" x1="131.74" y1="197.62" x2="131.74" y2="65.46" gradientUnits="userSpaceOnUse">
+      <stop offset=".02" stop-color="#1381b1"/>
+      <stop offset="1" stop-color="#1b355e"/>
+    </linearGradient>
+    <linearGradient id="Sfumatura_senza_nome_21-3" data-name="Sfumatura senza nome 21" x1="93.45" y1="158.38" x2="93.45" y2="77.01" xlink:href="#Sfumatura_senza_nome_21"/>
+    <linearGradient id="Sfumatura_senza_nome_21-4" data-name="Sfumatura senza nome 21" x1="56.69" y1="163.66" x2="65.16" y2="163.66" xlink:href="#Sfumatura_senza_nome_21"/>
+    <linearGradient id="Sfumatura_senza_nome_205" data-name="Sfumatura senza nome 205" x1="187.48" y1="139.65" x2="187.48" y2="34.66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b355e"/>
+      <stop offset=".98" stop-color="#1381b1"/>
+    </linearGradient>
+  </defs>
+  <polygon class="cls-12" points="226.77 49.1 283.46 81.83 255.12 98.19 227.04 81.98 226.77 49.1"/>
+  <polygon class="cls-12" points="255.12 196.29 283.46 179.83 283.46 81.83 255.12 98.19 255.12 196.29"/>
+  <polygon class="cls-15" points="141.73 0 141.73 32.73 173.42 51.02 201.76 34.66 141.73 0"/>
+  <polygon class="cls-10" points="255.12 196.29 255.12 229.12 217.7 250.72 274.4 250.72 283.46 245.49 283.46 179.83 255.12 196.29"/>
+  <polygon class="cls-1" points="201.76 259.93 201.76 292.71 274.4 250.72 217.7 250.72 201.76 259.93"/>
+  <polygon class="cls-17" points="173.42 123.29 201.76 139.65 201.76 194.46 226.77 180.02 226.77 212.62 173.42 243.48 173.42 123.29"/>
+  <polygon class="cls-3" points="0 81.83 28.35 98.19 141.73 32.73 141.73 0 0 81.83"/>
+  <polygon class="cls-2" points="28.35 229.12 0 245.49 0 81.83 28.35 98.19 28.35 229.12"/>
+  <polygon class="cls-5" points="85.04 261.85 85.04 294.59 0 245.49 28.35 229.12 85.04 261.85"/>
+  <polygon class="cls-4" points="141.73 294.59 201.76 259.93 201.76 292.71 141.73 327.32 141.73 294.59"/>
+  <polygon class="cls-11" points="113.39 310.95 141.73 294.59 141.73 327.32 113.39 310.95"/>
+  <polygon class="cls-13" points="141.73 186.1 141.73 294.59 121.74 306.13 121.74 197.62 141.73 186.1"/>
+  <polygon class="cls-14" points="121.74 77.01 141.73 65.46 141.73 186.1 121.74 197.62 121.74 77.01"/>
+  <polygon class="cls-6" points="113.39 81.83 121.74 77.01 121.74 158.38 65.16 158.38 65.16 109.67 84.86 98.29 85.04 144.01 113.38 144.01 113.39 81.83"/>
+  <polygon class="cls-8" points="65.16 217.64 65.16 158.38 121.74 158.38 121.74 306.13 113.35 310.93 113.37 172.36 85.04 172.36 85.04 229.12 65.16 217.64"/>
+  <polygon class="cls-7" points="56.69 212.76 65.16 217.64 65.16 109.67 56.69 114.56 56.69 212.76"/>
+  <polygon class="cls-16" points="201.76 34.66 201.76 139.65 173.42 123.29 173.19 51.02 201.76 34.66"/>
+  <line class="cls-9" x1="141.73" x2="141.73" y2="32.73"/>
+  <line class="cls-9" x1="283.46" y1="81.83" x2="255.12" y2="98.19"/>
+  <line class="cls-9" x1="255.12" y1="196.29" x2="283.46" y2="179.83"/>
+  <line class="cls-9" x1="28.35" y1="229.12" y2="245.49"/>
+  <line class="cls-9" x1="28.35" y1="98.19" x2="0" y2="81.83"/>
+</svg>

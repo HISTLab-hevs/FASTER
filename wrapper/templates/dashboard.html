@@ -1,0 +1,1136 @@
+<div class="app-shell flex h-screen bg-blue-50 overflow-hidden">
+    <aside
+        class="w-60 bg-slate-800 border-r border-slate-700/60 flex flex-col flex-shrink-0 overflow-y-auto app-sidebar">
+        <div class="p-5 border-b border-slate-700/60 flex items-center gap-2 justify-between">
+            <div class="flex items-center gap-2 min-w-0">
+                <img src="/wrapper/images/logo.png" alt="FASTER logo" class="w-7 h-7 object-contain">
+                <span class="font-bold text-sm sidebar-brand-text truncate">FASTER</span>
+            </div>
+            <button id="sidebar-toggle-btn" class="sidebar-toggle-btn text-slate-300 hover:text-white"
+                title="Collapse sidebar">
+                <i id="sidebar-toggle-icon" class="ph ph-caret-double-left"></i>
+                <span class="sidebar-toggle-label">Collapse</span>
+            </button>
+        </div>
+
+        <nav class="flex-1 p-3 space-y-1">
+            {{NAV_TABS}}
+        </nav>
+
+        <div class="px-3 pb-3 border-t border-slate-700/60 sidebar-about">
+            <p class="text-[11px] uppercase tracking-wide text-slate-400 px-2 pt-3 pb-1 sidebar-section-title">About</p>
+            <button id="auth-link-docs"
+                class="w-full text-left px-3 py-2 rounded-lg text-xs text-slate-300 hover:bg-slate-700/50 flex items-center gap-2"
+                title="Documentation">
+                <i class="ph ph-book-open-text text-base"></i><span class="sidebar-link-label">Documentation</span>
+            </button>
+            <button id="auth-link-creators"
+                class="w-full text-left px-3 py-2 rounded-lg text-xs text-slate-300 hover:bg-slate-700/50 flex items-center gap-2"
+                title="Creators">
+                <i class="ph ph-binoculars text-base"></i><span class="sidebar-link-label">Creators</span>
+            </button>
+            <button id="auth-link-support"
+                class="w-full text-left px-3 py-2 rounded-lg text-xs text-slate-300 hover:bg-slate-700/50 flex items-center gap-2"
+                title="Contribute">
+                <i class="ph ph-lifebuoy text-base"></i><span class="sidebar-link-label">Contribute</span>
+            </button>
+        </div>
+
+        <div class="p-3 border-t border-slate-700/60 sidebar-user-block">
+            <div class="flex items-center gap-2 px-2 py-1 mb-1">
+                <div
+                    class="w-7 h-7 rounded-full bg-teal-500/20 border border-teal-500/40 flex items-center justify-center flex-shrink-0">
+                    <i class="ph ph-user text-teal-400 text-sm"></i>
+                </div>
+                <span class="text-xs text-slate-300 truncate sidebar-user-name">{{USERNAME}}</span>
+            </div>
+            <button id="change-password-btn"
+                class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-slate-100 hover:bg-slate-700/50">
+                <i class="ph ph-password text-base"></i> <span class="sidebar-link-label">Change Password</span>
+            </button>
+            <button id="logout-btn"
+                class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-slate-400 hover:text-slate-200 hover:bg-slate-700/50">
+                <i class="ph ph-sign-out text-base"></i> <span class="sidebar-link-label">Logout</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto">
+        <div class="mobile-app-menu md:hidden border-b border-blue-100 bg-blue-50 sticky top-0 z-30 px-3 py-2">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <img src="/wrapper/images/logo.png" alt="FASTER logo" class="w-6 h-6 object-contain">
+                    <span class="text-sm font-semibold text-blue-950">FASTER</span>
+                </div>
+                <button id="mobile-app-menu-btn"
+                    class="px-3 py-1.5 text-xs rounded bg-blue-900 text-white">Menu</button>
+            </div>
+            <div id="mobile-app-menu-panel"
+                class="hidden mt-2 bg-white border border-blue-100 rounded-lg p-2 space-y-1">
+                <button class="mobile-tab-item w-full text-left px-3 py-2 text-xs rounded hover:bg-blue-50"
+                    data-tab="0">Datasets</button>
+                <button class="mobile-tab-item w-full text-left px-3 py-2 text-xs rounded hover:bg-blue-50"
+                    data-tab="1">Experiment Setup</button>
+                <button class="mobile-tab-item w-full text-left px-3 py-2 text-xs rounded hover:bg-blue-50"
+                    data-tab="2">Live Monitor</button>
+                <button class="mobile-tab-item w-full text-left px-3 py-2 text-xs rounded hover:bg-blue-50"
+                    data-tab="3">History</button>
+                <button class="mobile-tab-item w-full text-left px-3 py-2 text-xs rounded hover:bg-blue-50"
+                    data-tab="4">System Status</button>
+                {{ADMIN_MOBILE_TABS}}
+                <div class="border-t border-blue-100 my-1"></div>
+                <button id="mobile-auth-link-docs"
+                    class="w-full text-left px-3 py-2 text-xs rounded hover:bg-blue-50">Documentation</button>
+                <button id="mobile-auth-link-creators"
+                    class="w-full text-left px-3 py-2 text-xs rounded hover:bg-blue-50">Creators</button>
+                <button id="mobile-auth-link-support"
+                    class="w-full text-left px-3 py-2 text-xs rounded hover:bg-blue-50">Contribute</button>
+                <div class="border-t border-blue-100 my-1"></div>
+                <div class="px-3 py-1 text-[11px] text-slate-500">{{USERNAME}}</div>
+                <button id="mobile-logout-btn"
+                    class="w-full text-left px-3 py-2 text-xs rounded text-red-700 hover:bg-red-50">Logout</button>
+            </div>
+        </div>
+
+        <div id="launching-overlay" class="modal-overlay hidden" aria-hidden="true">
+            <div class="modal-panel launching-panel" role="status" aria-live="polite">
+                <div class="launching-spinner" aria-hidden="true"></div>
+                <h3 class="text-base font-semibold text-slate-900 mt-2">Launching job...</h3>
+                <p class="text-xs text-slate-600 mt-1">Preparing configuration and loading dataset. Please wait a few
+                    seconds.</p>
+            </div>
+        </div>
+
+        <div class="tab-content p-6" data-tab="0">
+            <div class="flex items-center justify-between mb-5">
+                <h1 class="text-2xl font-bold">Datasets</h1>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4">
+                <p class="text-xs text-slate-400 mb-3">Manage default and custom datasets in one place. Custom datasets
+                    uploaded here are immediately available in Experiment Setup.</p>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
+                    <div class="md:col-span-5">
+                        <label class="block text-xs text-slate-400 mb-1">Upload dataset (.csv, .tsv, .npz, .zip)</label>
+                        <div class="ui-file-inline">
+                            <input id="datasets-upload-file-input" type="file"
+                                accept=".csv,.tsv,.npz,.zip,text/csv,text/tab-separated-values,application/octet-stream,application/zip"
+                                class="hidden">
+                            <button id="datasets-upload-file-btn"
+                                class="ui-btn-compact ui-btn-neutral">
+                                <i class="ph ph-upload-simple mr-1"></i>Select File
+                            </button>
+                            <span id="datasets-upload-file-name" class="ui-file-name">No dataset
+                                selected</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <label class="block text-xs text-slate-400 mb-1">Description (optional)</label>
+                        <input id="datasets-upload-description" type="text" maxlength="200" class="fl-input text-sm"
+                            placeholder="Describe source, labels, preprocessing, or caveats (max 200)...">
+                    </div>
+                    <div class="md:col-span-2">
+                        <button id="datasets-upload-submit-btn"
+                            class="ui-btn-compact ui-btn-success ui-btn-fill text-sm">
+                            <i class="ph ph-cloud-arrow-up"></i>Upload Dataset
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-sm font-semibold">Custom Datasets</h2>
+                        <div id="datasets-status" class="text-[11px] text-slate-500 font-medium"></div>
+                    </div>
+                </div>
+                <div class="ui-toolbar-grid ui-toolbar-grid-3 mb-3">
+                    <select id="datasets-sort-field" class="fl-input text-xs w-full">
+                        <option value="dataset_name_asc">Order: Name A-Z</option>
+                        <option value="dataset_name_desc">Order: Name Z-A</option>
+                        <option value="created_at_desc">Order: Date newest</option>
+                        <option value="created_at_asc">Order: Date oldest</option>
+                        <option id="datasets-sort-owner-option" value="owner_asc" hidden disabled>Order: Owner A-Z</option>
+                        <option value="dataset_format_asc">Order: Type A-Z</option>
+                        <option value="rows_desc">Order: Rows high-low</option>
+                    </select>
+                    <select id="datasets-search-field" class="fl-input text-xs w-full">
+                        <option value="all">Search in: All fields</option>
+                        <option value="dataset_name">Search in: Dataset name</option>
+                        <option id="datasets-search-owner-option" value="owner" hidden disabled>Search in: Owner</option>
+                        <option value="description">Search in: Description</option>
+                        <option value="dataset_format">Search in: Type</option>
+                        <option value="created_at">Search in: Date</option>
+                    </select>
+                    <input id="datasets-search-input" type="text" class="fl-input text-xs w-full"
+                        placeholder="Search datasets...">
+                    <button id="datasets-refresh-btn"
+                        class="ui-btn-compact ui-btn-neutral justify-self-end shrink-0"
+                        title="Refresh datasets">
+                        <i class="ph ph-arrows-clockwise"></i>
+                    </button>
+                </div>
+                <div id="datasets-custom-list" class="space-y-3"></div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                <h2 class="text-sm font-semibold mb-3">Default Datasets</h2>
+                <div id="datasets-default-list" class="grid grid-cols-1 xl:grid-cols-2 gap-3"></div>
+            </div>
+        </div>
+
+        <div class="tab-content p-6 hidden" data-tab="1">
+            <div class="flex items-center justify-between mb-5">
+                <h1 class="text-2xl font-bold">Experiment Setup</h1>
+                <div class="flex items-center gap-3">
+                    <span id="setup-mode-label" class="text-xs text-slate-500">Mode: Simple</span>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4">
+                <div class="flex items-center justify-between gap-3 mb-3 setup-wizard-header">
+                    <div id="setup-step-label" class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Step
+                        1 of 4</div>
+                    <div class="flex items-center gap-2 setup-wizard-actions">
+                        <button id="setup-prev-btn"
+                            class="px-3 py-1.5 text-xs rounded bg-slate-700 hover:bg-slate-600 text-slate-200 transition-colors">Back</button>
+                        <button id="setup-next-btn"
+                            class="px-3 py-1.5 text-xs rounded bg-teal-600 hover:bg-teal-500 text-white transition-colors">Next</button>
+                    </div>
+                </div>
+                <div id="setup-step-progress" class="setup-step-progress-row"></div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4" data-wizard-step="1">
+                <p class="text-xs text-slate-400 mb-2 font-medium uppercase tracking-wide">Step 1: Select Setup Mode</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="flex flex-col">
+                        <button id="setup-mode-simple"
+                            title="Simple mode: guided baseline FL runs with only the core setup controls."
+                            class="setup-mode-card setup-mode-card-active">
+                            <span class="setup-mode-title">Simple Mode</span>
+                            <span class="setup-mode-desc">Guided baseline runs with core controls and fixed advanced defaults.</span>
+                        </button>
+                        <details
+                            class="mt-2 bg-slate-700/10 border border-slate-700/20 rounded-lg overflow-hidden group">
+                            <summary
+                                class="flex items-center justify-between px-3 py-2 cursor-pointer hover:bg-slate-700/20 transition-colors">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Show
+                                    Details</span>
+                                <i class="ph ph-caret-right text-slate-400 chevron text-[10px]"></i>
+                            </summary>
+                            <div
+                                class="px-3 pb-3 text-[11px] text-slate-500 leading-relaxed border-t border-slate-700/10 pt-2 bg-white/30">
+                                <ul class="space-y-1 list-none">
+                                    <li><i class="ph ph-check-circle text-teal-600 mr-1"></i><strong>Best for</strong>:
+                                        quick tests, baseline comparisons, and first-pass validation.</li>
+                                    <li><i class="ph ph-check-circle text-teal-600 mr-1"></i><strong>Shows</strong>:
+                                        method selection, dataset/source, evaluation split, run names, client count,
+                                        data split controls, and the main training settings.</li>
+                                    <li><i class="ph ph-check-circle text-teal-600 mr-1"></i><strong>Visible controls</strong>:
+                                        FedAvg, FedProx, FedNova, and FedGP. Simple mode keeps FedGP with a fixed preset. The training split is automatically covered across rounds, and each round&apos;s training subset automatically reuses the prepared client distribution.</li>
+                                    <li><i class="ph ph-lock-key text-slate-500 mr-1"></i><strong>Hidden until Advanced</strong>:
+                                        repeats, seed and initial eligible clients, momentum/FedProx fine-tuning,
+                                        synchronization cadence, round coverage plan controls, optional
+                                        round client plan controls, per-client learning rates, churn controls,
+                                        the custom model step, and editable GP search parameters.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="flex flex-col">
+                        <button id="setup-mode-advanced"
+                            title="Advanced mode: full experiment control for reproduction, debugging, and exploratory FL work."
+                            class="setup-mode-card">
+                            <span class="setup-mode-title">Advanced Mode</span>
+                            <span class="setup-mode-desc">Full experiment control for reproducibility, custom models, runtime tuning, and GP search.</span>
+                        </button>
+                        <details
+                            class="mt-2 bg-slate-700/10 border border-slate-700/20 rounded-lg overflow-hidden group">
+                            <summary
+                                class="flex items-center justify-between px-3 py-2 cursor-pointer hover:bg-slate-700/20 transition-colors">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Show
+                                    Details</span>
+                                <i class="ph ph-caret-right text-slate-400 chevron text-[10px]"></i>
+                            </summary>
+                            <div
+                                class="px-3 pb-3 text-[11px] text-slate-500 leading-relaxed border-t border-slate-700/10 pt-2 bg-white/30">
+                                <ul class="space-y-1 list-none">
+                                    <li><i class="ph ph-plus-circle text-blue-600 mr-1"></i><strong>Best for</strong>:
+                                        debugging, ablations, reproducing prior runs, and expert tuning.</li>
+                                    <li><i class="ph ph-plus-circle text-blue-600 mr-1"></i><strong>Unlocks</strong>:
+                                        the full setup wizard, including the Model &amp; Advanced step.</li>
+                                    <li><i class="ph ph-plus-circle text-blue-600 mr-1"></i><strong>Visible controls</strong>:
+                                        repeats, seed, initial eligible clients, momentum, FedProx mu, churn
+                                        settings, weights sending frequency, explicit round coverage plans,
+                                        optional round client plans with churn-aware redistribution, custom Python models, and editable
+                                        GP search parameters.</li>
+                                    <li><i class="ph ph-arrow-right text-blue-600 mr-1"></i><strong>Why use it</strong>:
+                                        reproduce runs more precisely or tune runtime, model, and GP behavior.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4" data-wizard-step="2">
+                <p class="text-xs text-slate-400 mb-2 font-medium uppercase tracking-wide">Quick-start from scenario</p>
+                <p class="text-xs text-slate-500 mb-3">Scenarios and YAML config files auto-apply the matching setup mode when possible. Advanced presets switch you into Advanced mode automatically; Simple presets stay lightweight.</p>
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Choose Scenario (auto-apply)</label>
+                        <div class="scenario-select-row">
+                            <select id="scenario-dd" class="fl-input w-full">
+                                <option value="">— select scenario —</option>
+                            </select>
+                            <button id="scenario-delete-btn" type="button" class="ui-btn-compact ui-btn-danger scenario-delete-action disabled:opacity-40 disabled:cursor-not-allowed" title="Delete selected user scenario" disabled aria-label="Delete selected scenario">
+                                <i class="ph ph-trash" aria-hidden="true"></i>
+                                <span>Delete</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Upload config.yaml (auto-apply)</label>
+                        <div class="ui-file-inline">
+                            <input id="scenario-file-input" type="file" accept=".yaml,.yml" class="hidden">
+                            <button id="scenario-file-choose-btn"
+                                class="ui-btn-compact ui-btn-neutral scenario-upload-action w-44">
+                                <i class="ph ph-file-arrow-up mr-1"></i>Select Config
+                            </button>
+                            <span id="scenario-file-name" class="ui-file-name">No file selected</span>
+                        </div>
+                    </div>
+                </div>
+                <details id="scenario-yaml-help" class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="px-3 py-2 text-xs font-semibold text-blue-900 cursor-pointer">Syntax file
+                        config.yaml (click to expand)</summary>
+                    <div class="px-3 pb-3">
+                        <textarea id="scenario-yaml-template-source" class="hidden"># Core identity
+method: fed_avg                         # fed_avg | fed_avgw | fed_prox | fed_nova | fed_gp
+methods: []                             # optional list: launches one run per method
+run_names: ''                           # optional comma-separated names, one per method
+dataset_name: pathmnist                 # built-in dataset or custom_csv/custom_image_npz/custom_image_folder
+evaluation_split_mode: train_val_test   # train_val_test | train_val
+ui_mode: null                           # optional: simple | advanced
+
+# Scale and scheduling
+num_clients: null                       # int
+initial_eligible_clients: null          # int in [1,num_clients]
+batch_size: null                        # int
+repeat: null                            # int
+seed: null                              # int >= 0
+server_warmup_epochs: null              # int
+local_model_epochs: null                # int
+weights_sending_frequency: null         # int
+round_train_schedule_mode: auto         # auto | manual | no_split
+round_train_schedule_percentages: []    # manual: one percentage per round, total 100
+round_client_allocation_mode: auto      # auto | manual
+round_client_allocation_percentages: [] # manual matrix: one row per round, one value per client, each row totals 100
+
+# Optimizer
+server_learning_rate: null              # float
+learning_rate: 0.005                     # scalar client LR; kept in sync with client_learning_rates[0]
+client_learning_rates: []               # optional list: one learning rate per client
+momentum: null                          # float
+mu: null                                # fed_prox regularization float
+
+# Client churn
+death_prob: null                        # float in [0,0.9]
+new_client_prob: null                   # float in [0,0.9]
+
+# Data distribution
+server_data_percentage: null            # float
+iid: null                               # bool
+imbalance_rate: null                    # float
+train_val_split: null                   # float; only for FashionMNIST/CIFAR (ignored for MedMNIST/custom)
+
+# FedGP fields
+individuals: null                       # int
+generations: null                       # int
+elitism_size: null                      # int
+mutation_rate: null                     # float
+crossover_rate: null                    # float
+gp_patience: null                       # int
+gp_initialization: null                 # genHalfAndHalf | genFull | genGrow
+gp_transfer_learning: null              # disabled | full_reuse | elite_reuse | elite_mutation_warm_start | hybrid
+mutation_type: null                     # mutUniform | mutNodeReplacement | mutInsert
+selection_type: null                    # selTournament | selRoulette | selRandom
+crossover_type: null                    # cxOnePoint | cxOnePointLeafBiased
+min_tree_size: null                     # int | false
+max_tree_size: null                     # int
+available_primitives: null              # comma-separated primitives
+
+# Custom model fields
+custom_model_mode: default              # default | code | upload_file | loaded_file
+custom_model_code: ''                   # Python code defining build_model(n_channels, n_classes)
+
+# Custom dataset fields
+custom_dataset_ref: ''                  # required when dataset_name is custom_*
+custom_dataset_name: ''                 # optional display name
+custom_dataset_format: ''               # csv | image_npz | image_folder</textarea>
+                        <div id="scenario-yaml-template-editor" class="cm-host" style="max-height:240px;"></div>
+                    </div>
+                </details>
+            </div>
+
+            <details open class="bg-slate-800 border border-slate-700/60 rounded-xl mb-3" data-wizard-step="2">
+                <summary
+                    class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-700/30 rounded-xl">
+                    <span class="font-semibold text-sm">Method &amp; Dataset</span>
+                    <i class="ph ph-caret-right text-slate-400 chevron"></i>
+                </summary>
+                <div class="px-5 pb-4">
+                    {{METHOD_DATASET_FIELDS}}
+                </div>
+            </details>
+
+            <details open class="bg-slate-800 border border-slate-700/60 rounded-xl mb-3" data-advanced="true"
+                data-wizard-step="3">
+                <summary
+                    class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-700/30 rounded-xl">
+                    <span class="font-semibold text-sm">Data Distribution</span>
+                    <i class="ph ph-caret-right text-slate-400 chevron"></i>
+                </summary>
+                <div class="px-5 pb-4 setup-fields-grid">
+                    {{DATA_DISTRIBUTION_FIELDS}}
+                </div>
+            </details>
+
+            <details open class="bg-slate-800 border border-slate-700/60 rounded-xl mb-3" data-wizard-step="3">
+                <summary
+                    class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-700/30 rounded-xl">
+                    <span class="font-semibold text-sm">Training Parameters</span>
+                    <i class="ph ph-caret-right text-slate-400 chevron"></i>
+                </summary>
+                <div class="px-5 pb-4 setup-fields-grid">
+                    {{TRAINING_PARAMETER_FIELDS}}
+                </div>
+            </details>
+
+            <details open class="bg-slate-800 border border-slate-700/60 rounded-xl mb-3" id="model-customization-panel"
+                data-advanced="true" data-wizard-step="4">
+                <summary
+                    class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-700/30 rounded-xl">
+                    <span class="font-semibold text-sm">Model Customization</span>
+                    <i class="ph ph-caret-right text-slate-400 chevron"></i>
+                </summary>
+                <div class="px-5 pb-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">Source</label>
+                            <select id="cfg-custom_model_mode" class="fl-input">
+                                <option value="default">Use default model.py</option>
+                                <option value="code">Inline Python code</option>
+                            </select>
+                        </div>
+                        <div id="custom-model-file-wrap" class="md:col-span-2">
+                            <label class="block text-xs text-slate-400 mb-1">Model file (.py)</label>
+                            <div class="flex items-center gap-3">
+                                <input id="custom-model-file-input" type="file" accept=".py" class="hidden">
+                                <button id="custom-model-file-btn"
+                                    class="px-3 py-2 bg-slate-700 hover:bg-slate-600 text-sm rounded-lg transition-colors w-40">
+                                    <i class="ph ph-upload-simple mr-1"></i>Load Python File
+                                </button>
+                                <span id="custom-model-file-name" class="text-xs text-slate-500">No file selected</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="custom-model-code-wrap" class="hidden">
+                        <label class="block text-xs text-slate-400 mb-1">Model code</label>
+                        <textarea id="cfg-custom_model_code" class="hidden" spellcheck="false"># Mandatory constraints:
+# 1) MODEL_NAME must be a non-empty string.
+# 2) Define build_model(n_channels, n_classes).
+# 3) The factory must return a torch.nn.Module.
+# 4) Keep imports safe: avoid blocked modules (os, sys, subprocess, shutil, pathlib, socket, importlib).
+# 5) Blocked calls: eval, exec, compile, __import__.
+
+import torch
+import torch.nn as nn
+
+MODEL_NAME = "CustomCNN16"
+
+class ModelImpl(nn.Module):
+    def __init__(self, n_channels, n_classes):
+        super().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(n_channels, 16, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(16, 32, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d((1, 1)),
+        )
+        self.classifier = nn.Linear(32, n_classes)
+
+    def forward(self, x):
+        x = self.features(x)
+        x = x.view(x.size(0), -1)
+        return self.classifier(x)
+
+def build_model(n_channels, n_classes):
+    return ModelImpl(n_channels, n_classes)
+</textarea>
+                        <div id="cfg-custom_model_code_editor" class="cm-host"></div>
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-3">
+                        Required before launch: <strong>MODEL_NAME</strong> (non-empty string) and
+                        <strong>build_model(n_channels, n_classes)</strong>.
+                        Validation also blocks unsafe imports/calls and rejects oversized code (&gt; 5 MB).
+                        If runtime dependencies are missing, startup fails and a detailed error is shown.
+                    </p>
+                </div>
+            </details>
+
+            <details open id="gp-settings-section" class="bg-slate-800 border border-slate-700/60 rounded-xl mb-3"
+                data-advanced="true" data-gp-only="true" data-wizard-step="3">
+                <summary
+                    class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-700/30 rounded-xl">
+                    <span class="font-semibold text-sm">Genetic Programming</span>
+                    <i class="ph ph-caret-right text-slate-400 chevron"></i>
+                </summary>
+                <div class="px-5 pb-4 setup-fields-grid">
+                    {{GENETIC_PROGRAMMING_FIELDS}}
+                </div>
+                <div class="px-5 pb-4">
+                    <label class="block text-xs text-slate-400 mb-1">{{AVAILABLE_PRIMITIVES_LABEL}}</label>
+                    <input id="cfg-available_primitives" type="text" class="fl-input text-xs"
+                        value="torch.add,torch.sub,torch.mul,torch_protected_div,torch_mean,torch_median,torch.abs,torch_protected_sqrt">
+                </div>
+            </details>
+
+            <div id="setup-summary-card" class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4 hidden"
+                data-wizard-step="5">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Final Summary</p>
+                <div id="setup-summary-body" class="text-sm text-slate-300"></div>
+            </div>
+
+            <div class="flex items-center gap-3 mt-5" data-wizard-step="5">
+                <button id="save-defaults-btn"
+                    class="flex items-center justify-center gap-2 px-5 py-2.5 bg-sky-600 hover:bg-sky-500 text-white font-semibold rounded-lg transition-colors text-sm w-44">
+                    <i class="ph ph-sliders text-base"></i> Save Defaults
+                </button>
+                <button id="save-scenario-btn"
+                    class="flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors text-sm w-44">
+                    <i class="ph ph-floppy-disk text-base"></i> Save Scenario
+                </button>
+                <button id="start-btn"
+                    class="flex items-center justify-center gap-2 px-6 py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg transition-colors text-sm w-44">
+                    <i class="ph ph-play text-base"></i> Launch Job
+                </button>
+            </div>
+            <div id="setup-warning-box"
+                class="hidden mt-3 text-xs px-3 py-2 rounded border border-red-300 bg-red-50 text-red-800"></div>
+        </div>
+
+        <div class="tab-content p-6 hidden" data-tab="2">
+            <h1 class="text-2xl font-bold mb-5">Live Monitor</h1>
+
+            <div id="mon-status" class="text-sm text-slate-400 mb-4"></div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs font-medium text-slate-400 mb-2">Global Validation / Test Accuracy</p>
+                    <div class="chart-box"><canvas id="live-acc"></canvas></div>
+                </div>
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs font-medium text-slate-400 mb-2">Global Validation / Test Loss</p>
+                    <div class="chart-box"><canvas id="live-loss"></canvas></div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4">
+                <div id="repeat-progress-row" class="hidden mb-3">
+                    <span id="repeat-progress-label"
+                          class="inline-flex items-center gap-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 px-3 py-1 text-xs font-semibold text-teal-300">
+                        Repetition 1 / 1
+                    </span>
+                </div>
+                <div class="flex justify-between text-xs text-slate-400 mb-2">
+                    <span id="client-progress-label">Client progress waiting...</span>
+                    <span id="client-progress-pct">0%</span>
+                </div>
+                <div class="progress-track mb-3">
+                    <div id="client-progress-fill" class="progress-fill progress-fill-client" style="width:0%"></div>
+                </div>
+                <div class="flex justify-between text-xs text-slate-400 mb-2">
+                    <span id="progress-label">Waiting for training...</span>
+                    <span id="progress-pct">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">Latest Key Metrics</p>
+                <p id="mon-metric-insight" class="text-xs text-slate-500 mb-3">Metrics are shown as latest-so-far values by split. Validation is
+                    always explicit, and test metrics are shown for train_val_test runs.</p>
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                    <div id="monitor-val-panel" class="metric-panel">
+                        <p class="metric-panel-title">Latest Validation Metrics</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+                                <div class="ui-stat-card metric-card"><span class="metric-label">Accuracy</span><span id="mon-metric-val-acc"
+                                    class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label">Loss</span><span
+                                    id="mon-metric-val-loss" class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label">Precision</span><span
+                                    id="mon-metric-val-precision" class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label">Recall</span><span
+                                    id="mon-metric-val-recall" class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label">F1</span><span
+                                    id="mon-metric-val-f1" class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label label-with-help">ROC AUC
+                                    <span class="help-dot" tabindex="0" role="img" aria-label="ROC AUC may be unavailable when the evaluated split does not contain the class structure needed to compute it." data-tooltip="ROC AUC may be unavailable when the evaluated split does not contain the class structure needed to compute it.">?</span>
+                                </span><span id="mon-metric-val-roc_auc" class="metric-value">N/A</span></div>
+                        </div>
+                    </div>
+                    <div id="monitor-test-panel" class="metric-panel">
+                        <p class="metric-panel-title">Latest Test Metrics</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+                                <div class="ui-stat-card metric-card"><span class="metric-label">Accuracy</span><span id="mon-metric-test-acc"
+                                    class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label">Loss</span><span
+                                    id="mon-metric-test-loss" class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label">Precision</span><span
+                                    id="mon-metric-test-precision" class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label">Recall</span><span
+                                    id="mon-metric-test-recall" class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label">F1</span><span
+                                    id="mon-metric-test-f1" class="metric-value">-</span></div>
+                                <div class="ui-stat-card metric-card"><span class="metric-label label-with-help">ROC AUC
+                                    <span class="help-dot" tabindex="0" role="img" aria-label="ROC AUC may be unavailable when the evaluated split does not contain the class structure needed to compute it." data-tooltip="ROC AUC may be unavailable when the evaluated split does not contain the class structure needed to compute it.">?</span>
+                                </span><span id="mon-metric-test-roc_auc" class="metric-value">N/A</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4">
+                <div class="flex items-center justify-between mb-2">
+                    <p class="text-xs font-medium text-slate-400">Training Log</p>
+                    <button id="log-toggle-btn"
+                        class="text-xs px-2 py-1 rounded bg-slate-700 hover:bg-slate-600 text-slate-200 transition-colors">
+                        Collapse
+                    </button>
+                </div>
+                <div id="log-console-wrap">
+                    <div id="log-console">Waiting for training output...</div>
+                </div>
+            </div>
+
+            <div id="mon-download-row" class="hidden">
+                <a id="mon-download-btn" href="#" target="_blank"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-500/20 border border-teal-500/40 text-teal-400 rounded-lg text-sm hover:bg-teal-500/30 transition-colors">
+                    <i class="ph ph-download-simple text-base"></i> Download Results
+                </a>
+            </div>
+        </div>
+
+        <div class="tab-content p-6 hidden" data-tab="3">
+            <h1 class="text-2xl font-bold mb-5">History &amp; Analysis</h1>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4 flex items-center gap-3">
+                <div class="flex-1">
+                    <p class="text-xs text-slate-500">Select runs directly from the table below (max 5 for comparison).
+                    </p>
+                </div>
+            </div>
+
+            <div class="ui-toolbar-row mb-3 px-1">
+                <div class="ui-toolbar-actions shrink-0">
+                    <button id="hist-table-toggle"
+                        class="ui-btn-compact ui-btn-neutral">
+                        Hide Runs Table
+                    </button>
+                    <button id="hist-refresh-btn"
+                        class="ui-btn-compact ui-btn-neutral">
+                        <i class="ph ph-arrows-clockwise"></i>
+                    </button>
+                    <button id="hist-delete-btn"
+                        class="ui-btn-compact ui-btn-danger">
+                        <i class="ph ph-trash"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 w-full max-w-2xl ui-toolbar-filters">
+                    <select id="hist-search-field" class="fl-input text-xs w-full sm:col-span-1">
+                        <option value="all">All fields</option>
+                        <option value="name">Run name</option>
+                        <option value="method">Method</option>
+                        <option value="dataset">Dataset</option>
+                        <option id="hist-search-owner-option" value="owner" hidden disabled>Owner</option>
+                        <option value="status">Status</option>
+                    </select>
+                    <input id="hist-search-input" type="text" placeholder="Search runs (name, dataset, method...)"
+                        class="fl-input text-xs w-full sm:col-span-2 min-w-0">
+                </div>
+            </div>
+
+            <div id="hist-runs-table-wrap"
+                class="bg-slate-800 border border-slate-700/60 rounded-xl overflow-hidden mb-4">
+                <table class="w-full runs-table">
+                    <thead class="bg-slate-700/50">
+                        <tr>
+                            <th class="text-left text-xs font-medium text-slate-400 cursor-pointer select-none"
+                                data-hist-sort="name">Run Name<span data-sort-indicator></span></th>
+                            <th id="hist-owner-col-header"
+                                class="text-left text-xs font-medium text-slate-400 cursor-pointer select-none"
+                                data-hist-sort="owner" hidden>Owner <span class="help-dot" tabindex="0" role="img"
+                                    aria-label="For layout reasons, only the first 10 characters of the owner identifier are shown."
+                                    data-tooltip="For layout reasons, only the first 10 characters of the owner identifier are shown.">?</span><span
+                                    data-sort-indicator></span></th>
+                            <th class="text-left text-xs font-medium text-slate-400 cursor-pointer select-none"
+                                data-hist-sort="method">Method<span data-sort-indicator></span></th>
+                            <th class="text-left text-xs font-medium text-slate-400 cursor-pointer select-none"
+                                data-hist-sort="dataset">Dataset<span data-sort-indicator></span></th>
+                            <th class="text-left text-xs font-medium text-slate-400 cursor-pointer select-none"
+                                data-hist-sort="model_name">Model<span data-sort-indicator></span></th>
+                            <th class="text-left text-xs font-medium text-slate-400 cursor-pointer select-none"
+                                data-hist-sort="evaluation_split_mode">Eval<span data-sort-indicator></span></th>
+                            <th class="text-left text-xs font-medium text-slate-400 cursor-pointer select-none"
+                                data-hist-sort="best_accuracy">Best Acc.<span data-sort-indicator></span></th>
+                            <th class="text-left text-xs font-medium text-slate-400 cursor-pointer select-none"
+                                data-hist-sort="run_ts">Date<span data-sort-indicator></span></th>
+                            <th class="text-left text-xs font-medium text-slate-400 cursor-pointer select-none"
+                                data-hist-sort="status">Status<span data-sort-indicator></span></th>
+                            <th class="text-left text-xs font-medium text-slate-400 w-10"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="runs-table-body">
+                        <tr>
+                            <td colspan="10" class="px-4 py-4 text-center text-slate-500 text-sm">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="hist-table-pagination" class="hist-pagination-row mb-4"></div>
+            <div id="hist-split-warning"
+                class="hidden text-xs mb-3 px-3 py-2 rounded border border-amber-300 bg-amber-50 text-amber-800"></div>
+
+            <div id="hist-status" class="text-sm text-slate-400 mb-4 hidden"></div>
+            <div id="hist-compare-empty"
+                class="ui-empty-state text-sm mb-4">Select at least
+                2 runs to display comparison charts.</div>
+            <div id="hist-summary"
+                class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4 text-sm text-slate-300 hidden"></div>
+
+            <div id="hist-charts" class="hidden">
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    {{HISTORY_CHART_CARDS}}
+                </div>
+            </div>
+
+            <div id="hist-download-row" class="hidden">
+                <a id="hist-download-btn" href="#" target="_blank"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-500/20 border border-teal-500/40 text-teal-400 rounded-lg text-sm hover:bg-teal-500/30 transition-colors">
+                    <i class="ph ph-download-simple text-base"></i> Download Run ZIP
+                </a>
+            </div>
+
+            <div id="hist-selected-runs" class="text-xs text-slate-500 mt-4 break-words">Comparison selection: none</div>
+
+            <div id="hist-run-detail-modal" class="modal-overlay hidden">
+                <div class="modal-panel run-detail-modal-panel" style="max-width:1360px;">
+                    <div class="run-detail-head mb-3">
+                        <div class="run-detail-head-left">
+                            <h3 class="font-semibold text-sm">Run Details — <span id="hist-run-detail-name"
+                                    class="hist-run-name-editable"
+                                    style="cursor: pointer; border-bottom: 1px dotted #60a5fa; padding-bottom: 1px;"
+                                    title="Click to rename">Loading...</span></h3>
+                            <button id="hist-run-detail-system-btn" type="button"
+                                class="run-detail-head-system inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/15 border border-blue-400/35 text-blue-700 rounded-lg text-xs hover:bg-blue-500/25 transition-colors">
+                                <i class="ph ph-desktop text-base"></i> System Info
+                            </button>
+                            <a id="hist-run-detail-download-btn" href="#" target="_blank"
+                                class="run-detail-head-download inline-flex items-center gap-2 px-3 py-1.5 bg-teal-500/20 border border-teal-500/40 text-teal-400 rounded-lg text-xs hover:bg-teal-500/30 transition-colors">
+                                <i class="ph ph-download-simple text-base"></i> Download Run ZIP
+                            </a>
+                        </div>
+                        <button id="hist-run-detail-close" class="text-slate-300 hover:text-white"><i
+                                class="ph ph-x"></i></button>
+                    </div>
+                    <div id="hist-run-detail-meta" class="text-xs text-slate-400 mb-3"></div>
+                    <div id="hist-run-detail-insights" class="grid grid-cols-2 xl:grid-cols-3 gap-3 mb-4"></div>
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
+                        <div class="ui-stat-card">
+                            <p class="text-xs text-slate-400 mb-2">Validation Accuracy</p>
+                            <div class="chart-box"><canvas id="hist-detail-val-acc"></canvas></div>
+                        </div>
+                        <div class="ui-stat-card">
+                            <p class="text-xs text-slate-400 mb-2">Validation Loss</p>
+                            <div class="chart-box"><canvas id="hist-detail-val-loss"></canvas></div>
+                        </div>
+                        <div class="ui-stat-card"
+                            id="hist-detail-test-acc-card">
+                            <p class="text-xs text-slate-400 mb-2">Test Accuracy</p>
+                            <div class="chart-box"><canvas id="hist-detail-test-acc"></canvas></div>
+                        </div>
+                        <div class="ui-stat-card"
+                            id="hist-detail-test-loss-card">
+                            <p class="text-xs text-slate-400 mb-2">Test Loss</p>
+                            <div class="chart-box"><canvas id="hist-detail-test-loss"></canvas></div>
+                        </div>
+                    </div>
+                    <details id="hist-run-detail-config-section" class="mb-3 run-detail-toggle">
+                        <summary>
+                            <span class="run-detail-toggle-left">
+                                <i class="ph ph-caret-right chevron text-slate-400"></i>
+                                <i class="ph ph-file-yaml text-blue-400"></i>
+                                <span>Config YAML</span>
+                            </span>
+                            <span class="run-detail-toggle-hint">Click to expand</span>
+                        </summary>
+                        <div id="hist-run-detail-config" class="cm-host mt-2"></div>
+                    </details>
+                    <details id="hist-run-detail-model-section" class="run-detail-toggle">
+                        <summary>
+                            <span class="run-detail-toggle-left">
+                                <i class="ph ph-caret-right chevron text-slate-400"></i>
+                                <i class="ph ph-cpu text-violet-400"></i>
+                                <span>Model Code</span>
+                            </span>
+                            <span class="run-detail-toggle-hint">Click to expand</span>
+                        </summary>
+                        <div id="hist-run-detail-model-code" class="cm-host mt-2"></div>
+                    </details>
+                </div>
+            </div>
+
+            <div id="hist-model-code-modal" class="modal-overlay hidden">
+                <div class="modal-panel" style="max-width:860px;">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 id="hist-model-code-title" class="font-semibold text-sm">Model Code</h3>
+                        <button id="hist-model-code-close" class="text-slate-300 hover:text-white"><i
+                                class="ph ph-x"></i></button>
+                    </div>
+                    <div id="hist-model-code-pre" class="cm-host"></div>
+                </div>
+            </div>
+
+            <div id="hist-run-system-modal" class="modal-overlay hidden">
+                <div class="modal-panel" style="max-width:920px;">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 id="hist-run-system-title" class="font-semibold text-sm">Run System Info</h3>
+                        <button id="hist-run-system-close" class="text-slate-300 hover:text-white"><i
+                                class="ph ph-x"></i></button>
+                    </div>
+                    <p id="hist-run-system-meta" class="text-xs text-slate-400 mb-3"></p>
+                    <div id="hist-run-system-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 mb-3">
+                    </div>
+                    <p id="hist-run-system-empty" class="hidden text-sm text-slate-500">No hardware samples recorded for
+                        this run.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-content p-6 hidden" data-tab="4">
+            <h1 class="text-2xl font-bold mb-5">System Status</h1>
+
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">System Details</p>
+
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="ph ph-cpu text-xl text-sky-400"></i>
+                        <h3 class="font-semibold text-sm">CPU</h3>
+                    </div>
+                    <div class="progress-track mb-2" style="height:8px">
+                        <div id="cpu-bar" class="progress-fill"
+                            style="background:linear-gradient(90deg,#0284c7,#38bdf8);width:0%"></div>
+                    </div>
+                    <span id="cpu-label" class="text-sm text-slate-400">-</span>
+                </div>
+
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="ph ph-memory text-xl text-purple-400"></i>
+                        <h3 class="font-semibold text-sm">RAM</h3>
+                    </div>
+                    <div class="progress-track mb-2" style="height:8px">
+                        <div id="ram-bar" class="progress-fill"
+                            style="background:linear-gradient(90deg,#7c3aed,#a78bfa);width:0%"></div>
+                    </div>
+                    <span id="ram-label" class="text-sm text-slate-400">-</span>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-5">
+                <div class="flex items-center gap-2 mb-3">
+                    <i class="ph ph-graphics-card text-xl text-teal-400"></i>
+                    <h3 class="font-semibold text-sm">GPU</h3>
+                </div>
+                <div id="gpu-block" class="text-slate-400 text-sm">Fetching...</div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-5 mt-4">
+                <div class="flex items-center gap-2 mb-3">
+                    <i class="ph ph-list-checks text-xl text-emerald-400"></i>
+                    <h3 class="font-semibold text-sm">Jobs</h3>
+                </div>
+                <div id="jobs-queue-list" class="text-slate-400 text-sm">Fetching...</div>
+                <div id="jobs-pagination" class="hist-pagination-row mt-3"></div>
+            </div>
+
+            <div id="myjob-modal" class="modal-overlay hidden">
+                <div class="modal-panel">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="font-semibold text-sm">Active Job Configuration</h3>
+                        <button id="myjob-modal-close" class="text-slate-300 hover:text-white">
+                            <i class="ph ph-x"></i>
+                        </button>
+                    </div>
+                    <pre id="myjob-config-json" class="modal-pre"></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content p-6 hidden" data-tab="5">
+            <h1 class="text-2xl font-bold mb-5">Platform Analytics</h1>
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4 mb-4">
+                <div class="ui-toolbar-row mb-3">
+                    <button id="admin-analytics-refresh"
+                        class="ui-btn-compact ui-btn-neutral">Refresh</button>
+                </div>
+                <div id="admin-loading-wrap" class="admin-loading-wrap hidden mb-3" aria-live="polite"
+                    aria-busy="false">
+                    <div class="admin-loading-head">
+                        <span id="admin-loading-text" class="text-xs text-slate-500">Loading admin analytics...</span>
+                    </div>
+                    <div class="admin-loading-track">
+                        <div id="admin-loading-bar" class="admin-loading-bar"></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 w-full items-center ui-toolbar-grid">
+                    <select id="admin-analytics-search-field"
+                        class="fl-input text-xs w-full sm:col-span-4 xl:col-span-3">
+                        <option value="all">All fields</option>
+                        <option value="id">Run/Job ID</option>
+                        <option value="owner">Owner</option>
+                        <option value="method">Method</option>
+                        <option value="dataset">Dataset</option>
+                        <option value="status">Run status</option>
+                        <option value="kind">Job type</option>
+                    </select>
+                    <div
+                        class="sm:col-span-8 xl:col-span-9 flex flex-col xl:flex-row gap-2 items-stretch xl:items-center w-full">
+                        <input id="admin-analytics-search" type="text" placeholder="Search runs and jobs"
+                            class="fl-input text-xs w-full flex-1 min-w-0">
+                        <span id="admin-analytics-scope"
+                            class="text-xs text-slate-500 whitespace-nowrap mt-1 xl:mt-0"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-3 mb-4">
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-1">Users</p>
+                    <p id="admin-total-users" class="text-xl font-semibold text-slate-100">-</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-1">Total Runs</p>
+                    <p id="admin-total-runs" class="text-xl font-semibold text-slate-100">-</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-1">Running Jobs</p>
+                    <p id="admin-running-jobs" class="text-xl font-semibold text-slate-100">-</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-1">Pending Jobs</p>
+                    <p id="admin-pending-jobs" class="text-xl font-semibold text-slate-100">-</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-1">Run Success Ratio</p>
+                    <p id="admin-success-ratio" class="text-xl font-semibold text-slate-100">-</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-2">Runs by Status</p>
+                    <div class="chart-box"><canvas id="admin-status-chart"></canvas></div>
+                </div>
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-2">Top Users by Runs</p>
+                    <div class="chart-box"><canvas id="admin-users-chart"></canvas></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-2">Top Methods</p>
+                    <div class="chart-box"><canvas id="admin-methods-chart"></canvas></div>
+                </div>
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-2">Run Duration Buckets</p>
+                    <div class="chart-box"><canvas id="admin-duration-chart"></canvas></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-2">Pending Queue by Method</p>
+                    <div class="chart-box"><canvas id="admin-queue-chart"></canvas></div>
+                </div>
+                <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-4">
+                    <p class="text-xs text-slate-400 mb-2">Average Resource Usage</p>
+                    <div class="chart-box"><canvas id="admin-resource-chart"></canvas></div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl overflow-hidden">
+                <div
+                    class="px-4 py-3 border-b border-slate-700/50 text-xs text-slate-400 font-semibold uppercase tracking-wide">
+                    Running / Pending Jobs</div>
+                <div class="overflow-auto max-h-[320px]">
+                    <table class="w-full runs-table">
+                        <thead class="bg-slate-700/50">
+                            <tr>
+                                <th class="text-left text-xs font-medium text-slate-400">Type</th>
+                                <th class="text-left text-xs font-medium text-slate-400">ID</th>
+                                <th class="text-left text-xs font-medium text-slate-400">Owner</th>
+                                <th class="text-left text-xs font-medium text-slate-400">Method</th>
+                                <th class="text-left text-xs font-medium text-slate-400">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-jobs-body">
+                            <tr>
+                                <td colspan="5" class="px-4 py-4 text-center text-slate-500 text-sm">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="admin-jobs-pagination" class="hist-pagination-row p-3"></div>
+            </div>
+        </div>
+
+        <div class="tab-content p-6 hidden" data-tab="6">
+            <h1 class="text-2xl font-bold mb-5">User Management</h1>
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl p-5 mb-4">
+                <h2 class="text-sm font-semibold text-slate-200 mb-3">Create user</h2>
+                <form id="admin-create-user-form" class="grid grid-cols-1 md:grid-cols-5 gap-3 items-end">
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Identifier</label>
+                        <input id="admin-new-user-identifier" type="text" class="fl-input" placeholder="username">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Email</label>
+                        <input id="admin-new-user-email" type="email" class="fl-input" placeholder="name@domain.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Password</label>
+                        <input id="admin-new-user-password" type="password" class="fl-input"
+                            placeholder="Set initial password" autocomplete="new-password">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Role</label>
+                        <select id="admin-new-user-role" class="fl-input">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <button type="submit"
+                        class="px-4 py-2 rounded bg-blue-700 hover:bg-blue-600 text-white text-sm">Create User</button>
+                </form>
+                <p class="text-[11px] text-slate-500 mt-2">Password policy: min 10 chars, uppercase, lowercase, number,
+                    special char, no spaces.</p>
+                <p id="admin-create-user-msg" class="text-xs text-slate-400 mt-3"></p>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700/60 rounded-xl overflow-hidden">
+                <div
+                    class="px-4 py-3 border-b border-slate-700/50 text-xs text-slate-400 font-semibold uppercase tracking-wide">
+                    Registered Users</div>
+                <div class="overflow-auto max-h-[420px]">
+                    <table class="w-full runs-table">
+                        <thead class="bg-slate-700/50">
+                            <tr>
+                                <th class="text-left text-xs font-medium text-slate-400">Identifier</th>
+                                <th class="text-left text-xs font-medium text-slate-400">Email</th>
+                                <th class="text-left text-xs font-medium text-slate-400">Role</th>
+                                <th class="text-left text-xs font-medium text-slate-400">Created by</th>
+                                <th class="text-left text-xs font-medium text-slate-400">Created at</th>
+                                <th class="text-left text-xs font-medium text-slate-400">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-users-body">
+                            <tr>
+                                <td colspan="6" class="px-4 py-4 text-center text-slate-500 text-sm">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="auth-resource-panel" class="hidden">
+            <div id="auth-resource-content"></div>
+        </div>
+
+        <div id="confirm-modal" class="modal-overlay hidden">
+            <div class="modal-panel" style="max-width:460px;">
+                <h3 class="font-semibold text-sm mb-2">Confirm Action</h3>
+                <p id="confirm-modal-msg" class="text-sm text-slate-300 mb-4"></p>
+                <div class="flex items-center justify-end gap-2">
+                    <button id="confirm-modal-cancel"
+                        class="ui-btn-compact ui-btn-xs ui-btn-neutral">Cancel</button>
+                    <button id="confirm-modal-ok"
+                        class="ui-btn-compact ui-btn-xs ui-btn-danger">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="scenario-name-modal" class="modal-overlay hidden">
+            <div class="modal-panel" style="max-width:520px;">
+                <h3 class="font-semibold text-sm mb-2">Save Scenario</h3>
+                <p class="text-sm text-slate-400 mb-3">Choose a scenario name before saving.</p>
+                <input id="scenario-name-input" type="text" class="fl-input mb-4" placeholder="scenario_name">
+                <div class="flex items-center justify-end gap-2">
+                    <button id="scenario-name-cancel"
+                        class="ui-btn-compact ui-btn-xs ui-btn-neutral">Cancel</button>
+                    <button id="scenario-name-save"
+                        class="ui-btn-compact ui-btn-xs ui-btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="change-password-modal" class="modal-overlay hidden">
+            <div class="modal-panel" style="max-width:500px;">
+                <h3 class="font-semibold text-sm mb-2">Change Password</h3>
+                <p class="text-sm text-slate-400 mb-3">Update your account password directly from the dashboard.</p>
+                <div class="space-y-3">
+                    <input id="change-password-current" type="password" class="fl-input" placeholder="Current password"
+                        autocomplete="current-password">
+                    <input id="change-password-new" type="password" class="fl-input" placeholder="New password"
+                        autocomplete="new-password">
+                    <input id="change-password-new-confirm" type="password" class="fl-input"
+                        placeholder="Confirm new password" autocomplete="new-password">
+                    <p id="change-password-msg" class="text-xs text-slate-400 hidden"></p>
+                </div>
+                <div class="flex items-center justify-end gap-2 mt-4">
+                    <button id="change-password-cancel"
+                        class="ui-btn-compact ui-btn-xs ui-btn-neutral">Cancel</button>
+                    <button id="change-password-save"
+                        class="ui-btn-compact ui-btn-xs ui-btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="dataset-upload-modal" class="modal-overlay hidden">
+            <div class="modal-panel dataset-upload-panel" style="max-width:520px;">
+                <h3 id="dataset-upload-title" class="font-semibold text-sm mb-2">Uploading Dataset</h3>
+                <p id="dataset-upload-stage" class="text-sm text-slate-400 mb-3">Preparing upload...</p>
+                <div class="dataset-upload-progress-track">
+                    <div id="dataset-upload-progress-fill" class="dataset-upload-progress-fill" style="width:0%"></div>
+                </div>
+                <p id="dataset-upload-progress-text" class="text-xs text-slate-500 mt-2">0%</p>
+                <div class="flex items-center justify-end gap-2 mt-4">
+                    <button id="dataset-upload-cancel" class="ui-btn-compact ui-btn-xs ui-btn-danger">Cancel
+                        Upload</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

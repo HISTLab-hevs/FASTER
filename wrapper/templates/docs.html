@@ -1,0 +1,700 @@
+<div class="landing-shell min-h-screen bg-blue-50 text-slate-900">
+    <header class="sticky top-0 z-40 bg-blue-100 border-b border-blue-200">
+        <div class="w-full px-6 lg:px-10 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 text-blue-950">
+                <img src="/wrapper/images/logo.png" alt="FASTER" class="w-7 h-7 object-contain">
+                <span class="text-lg font-bold tracking-tight">FASTER</span>
+            </div>
+            <div class="ml-auto landing-desktop-nav items-center gap-7">
+                <nav class="flex items-center gap-4 md:gap-7 text-sm font-medium text-slate-600 flex-wrap justify-end">
+                    <a href="/Faster/Documentation" class="text-blue-800 font-semibold">Documentation</a>
+                    <a href="/Faster/Creators" class="hover:text-blue-800 transition-colors">Creators</a>
+                    <a href="/Faster/Contribute" class="hover:text-blue-800 transition-colors">Contribute</a>
+                </nav>
+                <a href="/Faster/Signin"
+                    class="ui-btn-compact ui-btn-primary public-nav-cta">Access Workspace</a>
+            </div>
+            <button id="landing-mobile-menu-btn"
+                class="landing-mobile-menu-btn ui-btn-primary public-nav-mobile">Menu</button>
+        </div>
+        <div id="landing-mobile-menu-panel" class="hidden md:hidden px-4 pb-3">
+            <div class="bg-white border border-blue-100 rounded-lg p-2 space-y-1 text-sm">
+                <a href="/Faster/Documentation"
+                    class="block px-3 py-2 rounded hover:bg-blue-50 text-blue-900 font-semibold">Documentation</a>
+                <a href="/Faster/Creators" class="block px-3 py-2 rounded hover:bg-blue-50">Creators</a>
+                <a href="/Faster/Contribute" class="block px-3 py-2 rounded hover:bg-blue-50">Contribute</a>
+                <a href="/Faster/Signin"
+                    class="block px-3 py-2 rounded text-blue-900 font-semibold hover:bg-blue-50">Access Workspace</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="w-full px-6 lg:px-10 py-8 doc-layout">
+        <aside class="doc-nav-card">
+            <a href="/wrapper/docs/FASTER-Documentation.pdf" download
+                class="doc-pdf-download" target="_blank" rel="noopener">
+                <i class="ph ph-file-arrow-down doc-pdf-icon" aria-hidden="true"></i>
+                Download PDF
+            </a>
+            <p class="doc-nav-title">Table of Contents</p>
+            <a href="/Faster/Documentation/chapter-overview" class="doc-nav-link">Overview</a>
+            <a href="/Faster/Documentation/chapter-navigation" class="doc-nav-link">Workspace Navigation</a>
+            <a href="/Faster/Documentation/chapter-quickstart" class="doc-nav-link">Quickstart</a>
+            <a href="/Faster/Documentation/chapter-access" class="doc-nav-link">Authentication and Access</a>
+            <a href="/Faster/Documentation/chapter-config" class="doc-nav-link">config.yaml Structure</a>
+            <a href="/Faster/Documentation/chapter-methods" class="doc-nav-link">Methods and Comparability</a>
+            <a href="/Faster/Documentation/chapter-parameters" class="doc-nav-link">Parameter Reference</a>
+            <a href="/Faster/Documentation/chapter-datasets" class="doc-nav-link">Datasets and Upload Rules</a>
+            <a href="/Faster/Documentation/chapter-default-networks" class="doc-nav-link">Default Network
+                Architectures</a>
+            <a href="/Faster/Documentation/chapter-custom-model" class="doc-nav-link">Custom Model Usage</a>
+            <a href="/Faster/Documentation/chapter-scenarios" class="doc-nav-link">Scenario Management</a>
+            <a href="/Faster/Documentation/chapter-monitoring" class="doc-nav-link">Live Observability</a>
+            <a href="/Faster/Documentation/chapter-history" class="doc-nav-link">History and Comparison</a>
+            <a href="/Faster/Documentation/chapter-system" class="doc-nav-link">System Status</a>
+            <a href="/Faster/Documentation/chapter-reproducibility" class="doc-nav-link">Reproducibility</a>
+            <a href="/Faster/Documentation/chapter-troubleshooting" class="doc-nav-link">Troubleshooting</a>
+        </aside>
+
+        <article class="doc-content-card">
+            <section id="chapter-overview" class="doc-chapter">
+                <h1 class="doc-h1">Platform Overview</h1>
+                <p>FASTER is a federated learning platform for running, monitoring, and comparing experiments from a
+                    single interface. You configure a run, launch it, watch it train, and analyze the results.</p>
+                <p>Each run begins with a short server warm-up, then trains in rounds. After every round the global
+                    model is aggregated and evaluated on the validation set, and on the test set when enabled.</p>
+            </section>
+
+            <section id="chapter-navigation" class="doc-chapter">
+                <h2 class="doc-h2">Workspace Navigation</h2>
+                <p>Once signed in, the workspace has five areas:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-700">
+                    <li><strong>Experiment Setup:</strong> configure and launch a run. Simple mode for the essentials,
+                        Advanced mode for full control.</li>
+                    <li><strong>Live Monitor:</strong> metrics, logs, and progress while a run is training.</li>
+                    <li><strong>Datasets:</strong> upload, search, and delete your custom datasets.</li>
+                    <li><strong>History:</strong> review past runs, compare them, and export them.</li>
+                    <li><strong>System Status:</strong> CPU, RAM, and GPU usage, and the run queue.</li>
+                </ul>
+            </section>
+
+            <section id="chapter-quickstart" class="doc-chapter">
+                <h2 class="doc-h2">Quickstart</h2>
+                <ul class="list-decimal pl-5 space-y-2 mt-2 text-slate-700">
+                    <li><strong>Sign in:</strong> authenticate with your assigned account.</li>
+                    <li><strong>Open Setup:</strong> choose method, dataset, and training parameters.</li>
+                    <li><strong>Load scenario (optional):</strong> apply a saved scenario or upload a YAML file.</li>
+                    <li><strong>Launch:</strong> start the run from Setup.</li>
+                    <li><strong>Monitor:</strong> track progress and logs in Live Monitor.</li>
+                    <li><strong>Compare:</strong> in History, select at least 2 runs to render comparison charts.</li>
+                </ul>
+            </section>
+
+            <section id="chapter-access" class="doc-chapter">
+                <h2 class="doc-h2">Authentication and Access</h2>
+                <p>Accounts are created by administrators; there is no public sign-up. Once signed in, you can change
+                    your own password from the workspace.</p>
+                <p>You see and manage only your own runs, exports, and datasets.</p>
+            </section>
+
+            <section id="chapter-config" class="doc-chapter">
+                <h2 class="doc-h2">config.yaml Structure</h2>
+                <p>Every run is defined by a YAML configuration, validated before launch. You normally fill it through
+                    the Setup form, but you can also import or export it as a file.</p>
+                <p><strong>Save Defaults</strong> remembers the current form as your personal starting point for future
+                    sessions. <strong>Save Scenario</strong> stores a named preset you load on demand. The two are
+                    independent: defaults prefill automatically, scenarios are loaded explicitly.</p>
+                <p>The block below shows the full configuration, including advanced and optional fields.</p>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        Expand full config.yaml structure</summary>
+                    <div class="doc-toggle-body px-3 pb-3">
+                        <pre class="text-xs text-slate-700 overflow-x-auto"><code># Core identity
+# Single method (this is what each launched run actually carries):
+method: fed_avg
+# Multiple methods (optional): launches one independent run per method,
+# sharing every other field below. The UI expands 'methods' into one run per
+# entry, each carrying a single 'method'. When 'methods' has one entry it
+# equals 'method'.
+methods: [fed_avg, fed_prox, fed_gp]
+# One run name per method, in the same order (optional). Leave empty for auto:
+run_names: avg_baseline, prox_baseline, gp_baseline
+dataset_name: pathmnist
+evaluation_split_mode: train_val_test
+
+# Scale and scheduling
+num_clients: 3
+initial_eligible_clients: 3
+batch_size: 128
+repeat: 1
+seed: 0
+server_warmup_epochs: 2
+local_model_epochs: 15
+weights_sending_frequency: 3
+round_train_schedule_mode: auto
+round_train_schedule_percentages: []    # manual mode: one percentage per round, all rounds together must total 100
+round_client_allocation_mode: auto
+round_client_allocation_percentages: [] # manual mode: one row per round, one value per client, each round totals 100
+
+# Optimizer
+server_learning_rate: 0.0005
+learning_rate: 0.005                        # scalar client LR
+client_learning_rates: [0.005, 0.02, 0.1]  # optional, one per client
+momentum: 0.9
+
+# Client churn
+death_prob: 0.0
+new_client_prob: 0.0
+
+# Data distribution
+server_data_percentage: 0.1
+iid: false
+imbalance_rate: 0.5
+train_val_split: 0.9
+
+# Method-specific fields
+mu: 1.0       # fed_prox
+fedprox_weighted: true  # fed_prox: sample-weighted average (paper rule) vs. uniform average
+
+# GP fields (used by fed_gp)
+individuals: 50
+generations: 20
+elitism_size: 1
+mutation_rate: 0.4
+crossover_rate: 0.6
+gp_patience: 4
+gp_initialization: genHalfAndHalf
+mutation_type: mutUniform
+mutation_subtree_maxsize: 2
+selection_type: selTournament
+crossover_type: cxOnePoint
+min_tree_size: false
+max_tree_size: 5
+gp_transfer_learning: full_reuse
+gp_fitness_metric: accuracy
+available_primitives: torch.add,torch.sub,torch.mul,torch_protected_div,torch_mean,torch_median,torch.abs,torch_protected_sqrt
+
+# Custom model fields (optional)
+custom_model_mode: default
+custom_model_code: ''
+
+# Custom dataset fields (optional; filled in automatically on upload
+# when dataset_name is custom_csv, custom_image_npz, or custom_image_folder)
+custom_dataset_ref: ''
+custom_dataset_name: ''</code></pre>
+                    </div>
+                </details>
+            </section>
+
+            <section id="chapter-methods" class="doc-chapter">
+                <h2 class="doc-h2">Methods and Comparability</h2>
+                <p>Supported methods:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-700">
+                    <li><strong>FedAvg</strong> (<code>fed_avg</code>): plain averaging of the client models.</li>
+                    <li><strong>FedAvgW</strong> (<code>fed_avgw</code>): averaging weighted by how many samples each
+                        client trained on.</li>
+                    <li><strong>FedProx</strong> (<code>fed_prox</code>): adds a regularization term that keeps clients
+                        close to the global model, which helps when client data differs a lot.</li>
+                    <li><strong>FedNova</strong> (<code>fed_nova</code>): corrects for clients that train for different
+                        amounts before each aggregation.</li>
+                    <li><strong>FedGP</strong> (<code>fed_gp</code>): an evolutionary aggregation strategy developed by
+                        our team.</li>
+                </ul>
+
+                <p class="mt-3"><strong>Official method references:</strong></p>
+                <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-700">
+                    <li><strong>FedAvg / FedAvgW:</strong> <a
+                            href="https://proceedings.mlr.press/v54/mcmahan17a"
+                            target="_blank" rel="noopener noreferrer"
+                            class="text-blue-700 hover:text-blue-800 underline">Communication-Efficient Learning of Deep
+                            Networks from Decentralized Data</a>.</li>
+                    <li><strong>FedProx:</strong> <a href="https://openreview.net/pdf?id=SkgwE5Ss3N" target="_blank"
+                            rel="noopener noreferrer" class="text-blue-700 hover:text-blue-800 underline">Federated
+                            Optimization in Heterogeneous Networks</a>.</li>
+                    <li><strong>FedNova:</strong> <a href="https://dl.acm.org/doi/abs/10.5555/3495724.3496362"
+                            target="_blank" rel="noopener noreferrer"
+                            class="text-blue-700 hover:text-blue-800 underline">Tackling the Objective Inconsistency
+                            Problem in Heterogeneous Federated Optimization</a>.</li>
+                    <li><strong>FedGP:</strong> <a href="https://link.springer.com/chapter/10.1007/978-3-031-90062-4_26"
+                            target="_blank" rel="noopener noreferrer"
+                            class="text-blue-700 hover:text-blue-800 underline">FedGP chapter reference</a> (method
+                        introduced by our team).</li>
+                </ul>
+
+                <p class="mt-3"><strong>Single vs. multiple methods:</strong> select one method for a single run, or
+                    several methods to launch one independent run per method that share every other configuration field.
+                    In <code>config.yaml</code> this maps to the <code>methods</code> list. Pair it with <code>run_names</code>,
+                    one name per method in the same order, to label each run. This is the recommended way to compare
+                    methods on identical settings.</p>
+            </section>
+
+            <section id="chapter-parameters" class="doc-chapter">
+                <h2 class="doc-h2">Parameter Reference</h2>
+                <p>What each setting does. Expand a group to see its parameters.</p>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        Core parameters</summary>
+                    <div class="doc-toggle-body param-ref-body px-3 pb-3 text-slate-700 space-y-2">
+                        <p><strong>Simple vs Advanced mode:</strong> Simple mode shows the core setup and handles round scheduling and client distribution automatically. Advanced mode adds churn controls, seed, per-round scheduling, per-client learning rates, custom models, repeats, and the full FedGP settings.</p>
+                        <p><strong>method:</strong> federated aggregation algorithm used for the run.</p>
+                        <p><strong>dataset_name:</strong> dataset used for training and evaluation.</p>
+                        <p><strong>num_clients:</strong> total number of clients in the run.</p>
+                        <p><strong>initial_eligible_clients:</strong> how many clients are active at the start, before churn. The lowest client IDs are used first.</p>
+                        <p><strong>batch_size:</strong> mini-batch size used in local training.</p>
+                        <p><strong>server_learning_rate:</strong> learning rate for the server warm-up before the rounds begin.</p>
+                        <p><strong>learning_rate:</strong> client learning rate. Must be positive.</p>
+                        <p><strong>client_learning_rates:</strong> one learning rate per client. Set it as Uniform, Manual, or Random in the UI.</p>
+                        <p><strong>momentum:</strong> momentum used by the local optimizer.</p>
+                        <p><strong>death_prob:</strong> chance, evaluated independently for each active client at the start of every round, that the client drops out.</p>
+                        <p><strong>new_client_prob:</strong> chance, evaluated independently for each inactive client at the start of every round, that the client rejoins. Dropout is not permanent: a client can drop and rejoin multiple times over a run, and the eligible set carries over from one round to the next rather than resetting.</p>
+                        <p><strong>seed:</strong> base seed for the whole run, covering data partitioning, training, and churn, so results are reproducible. Repeats use <code>seed + repeat index</code> to stay independent.</p>
+                        <p><strong>server_warmup_epochs:</strong> number of server warm-up epochs before the rounds.</p>
+                        <p><strong>local_model_epochs:</strong> total epochs each client trains over the run.</p>
+                        <p><strong>weights_sending_frequency:</strong> how many local epochs a client trains before sending its weights to the server for aggregation.</p>
+                        <p><strong>Number of rounds:</strong> you do not set rounds directly. The number of aggregation rounds is <code>local_model_epochs &divide; weights_sending_frequency</code> (for example, 15 epochs at frequency 3 give 5 rounds), so the two values must divide evenly.</p>
+                        <p><strong>round_train_schedule_mode:</strong> how the training data is spread across rounds. <code>auto</code> spreads it evenly, <code>manual</code> lets you set the share per round, <code>no_split</code> reuses all the training data every round. Validation and test never change between rounds.</p>
+                        <p><strong>round_train_schedule_percentages:</strong> the per-round shares for <code>manual</code> mode, one positive value per round, totalling 100.</p>
+                        <p><strong>round_client_allocation_mode:</strong> how each round&apos;s data is divided among clients. <code>auto</code> keeps the same split every round; <code>manual</code> lets you set it per round. If a client drops out, its share is redistributed to the remaining active clients.</p>
+                        <p><strong>round_client_allocation_percentages:</strong> the per-client shares for <code>manual</code> mode, one value per client per round, each round totalling 100.</p>
+                        <p><strong>repeat:</strong> how many times to run the same setup (each repeat uses a different seed).</p>
+                        <p><strong>evaluation_split_mode:</strong> <code>train_val_test</code> evaluates on validation and test; <code>train_val</code> uses validation only.</p>
+                        <p class="text-slate-500">Manual schedule percentages are a plan: the actual sample counts can shift slightly after rounding.</p>
+                    </div>
+                </details>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        Data distribution parameters</summary>
+                    <div class="doc-toggle-body param-ref-body px-3 pb-3 text-slate-700 space-y-2">
+                        <p><strong>server_data_percentage:</strong> share of the training data retained by the server (used for the server warm-up).</p>
+                        <p><strong>iid:</strong> toggles IID vs non-IID split of the training data across clients.</p>
+                        <p><strong>imbalance_rate:</strong> controls how unevenly training data is split across clients when <code>iid</code> is off, from more balanced near 0 to more skewed near 1. Must be strictly between 0 and 1; set <code>iid</code> to true for a fully balanced split.</p>
+                        <p><strong>train_val_split:</strong> train/validation ratio (e.g. <code>0.9</code>). Used only for FashionMNIST and CIFAR-10/100, where validation is carved out of the training data. MedMNIST and custom datasets already ship with their own splits, so the field is disabled for them.</p>
+                    </div>
+                </details>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        Method-specific parameters</summary>
+                    <div class="doc-toggle-body param-ref-body px-3 pb-3 text-slate-700 space-y-2">
+                        <p>Most methods run on the shared settings above. Only FedProx adds parameters of its own;
+                            FedAvgW and FedNova adjust their aggregation automatically, with nothing extra to set.</p>
+                        <p><strong>mu</strong> (FedProx): strength of the proximal term that keeps each client close to
+                            the global model. Higher values pull clients back harder; <code>0</code> makes FedProx
+                            behave like plain averaging. Used only by FedProx.</p>
+                        <p><strong>fedprox_weighted</strong> (FedProx): checked averages clients weighted by how many
+                            samples each one trained on (the paper's rule, same as FedAvgW); unchecked uses a plain
+                            uniform average across clients. Used only by FedProx.</p>
+                        <p>FedGP has its own group of settings, listed below.</p>
+                    </div>
+                </details>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">GP
+                        parameters (fed_gp)</summary>
+                    <div class="doc-toggle-body param-ref-body px-3 pb-3 text-slate-700 space-y-2">
+                        <p><strong>individuals:</strong> population size per generation.</p>
+                        <p><strong>generations:</strong> number of evolutionary iterations.</p>
+                        <p><strong>elitism_size:</strong> number of top individuals preserved unchanged.</p>
+                        <p><strong>mutation_rate:</strong> mutation probability.</p>
+                        <p><strong>crossover_rate:</strong> crossover probability.</p>
+                        <p><strong>gp_patience:</strong> no-improvement tolerance before early stop.</p>
+                        <p><strong>gp_initialization:</strong> initialization strategy for first population.</p>
+                        <p><strong>mutation_type:</strong> mutation operator choice.</p>
+                        <p><strong>mutation_subtree_maxsize:</strong> maximum height of the random subtree grafted in
+                            place of a mutated node when <code>mutation_type</code> is <code>mutUniform</code>. Lower
+                            values keep mutations small and limit tree bloat across generations. Integer from 1 to 64,
+                            default 2.</p>
+                        <p><strong>selection_type:</strong> parent selection strategy. <code>selRoulette</code> needs
+                            non-negative fitness, so it cannot be combined with <code>gp_fitness_metric: loss</code>.</p>
+                        <p><strong>crossover_type:</strong> crossover operator choice.</p>
+                        <p><strong>min_tree_size / max_tree_size:</strong> lower and upper complexity bounds.</p>
+                        <p><strong>gp_transfer_learning:</strong> controls reuse strategy across GP evolution phases.
+                            Valid values: <code>disabled</code>, <code>full_reuse</code>, <code>elite_reuse</code>,
+                            <code>elite_mutation_warm_start</code>, <code>hybrid</code>. The elite-based strategies
+                            carry over the top <code>elitism_size</code> individuals from the previous round, not just
+                            the single best, so the warm-started population keeps some diversity.</p>
+                        <p><strong>gp_fitness_metric:</strong> metric the evolution optimizes. <code>accuracy</code>,
+                            <code>precision</code>, <code>recall</code>, and <code>f1</code> are maximized
+                            (precision/recall/f1 are macro-averaged); <code>loss</code> is minimized. Default
+                            <code>accuracy</code>.</p>
+                        <p><strong>available_primitives:</strong> allowed primitive operation set. <code>torch_median</code>
+                            needs at least 3 clients to have an effect (the median of 2 values is their mean), so it is
+                            silently ignored below that; the setup form warns you when this applies.</p>
+                    </div>
+                </details>
+            </section>
+
+            <section id="chapter-datasets" class="doc-chapter">
+                <h2 class="doc-h2">Datasets and Upload Rules</h2>
+                <p>FASTER supports built-in datasets and custom uploads via a unified management interface.</p>
+                <p><strong>Built-in datasets</strong> are ready to use with no upload. They cover the MedMNIST family
+                    (<code>pathmnist</code>, <code>dermamnist</code>, <code>octmnist</code>, <code>bloodmnist</code>,
+                    <code>tissuemnist</code>, <code>pneumoniamnist</code>, <code>organamnist</code>,
+                    <code>organcmnist</code>, <code>organsmnist</code>) plus <code>fashionmnist</code>,
+                    <code>cifar10</code>, and <code>cifar100</code>. MedMNIST datasets already ship with their own
+                    train/val/test splits; FashionMNIST and CIFAR-10/100 carve the validation set out of the training
+                    data using <code>train_val_split</code>.</p>
+                <p><strong>Custom datasets</strong> are anything you upload yourself, in one of three shapes: tabular
+                    (CSV/TSV), image arrays (NPZ), or an image folder archive (ZIP). The rules below apply to those
+                    uploads.</p>
+                <p>You upload one file and the platform detects its type. Accepted formats: <code>.csv</code>,
+                    <code>.tsv</code>, <code>.npz</code>, and <code>.zip</code>. The Datasets tab shows your own
+                    uploads;</p>
+                <p><strong>The key rule: your upload must already define its own train, val, and test splits.</strong>
+                    The platform never splits data for you. How you express the splits depends on the format:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-700">
+                    <li><strong>CSV/TSV:</strong> a header row, numeric feature columns, one target column, and a split
+                        column named <code>split</code>, <code>set</code>, or <code>partition</code> (see the example
+                        below).</li>
+                    <li><strong>NPZ:</strong> explicit split arrays, either
+                        <code>train_*</code>/<code>val_*</code>/<code>test_*</code> or
+                        <code>x_train</code>/<code>x_val</code>/<code>x_test</code> with matching labels.</li>
+                    <li><strong>ZIP image folder:</strong> <code>train/</code>, <code>val/</code>, and
+                        <code>test/</code> directories (optionally inside one wrapper folder), each containing one
+                        subfolder per class with the images directly inside. No extra nesting, traversal paths, or
+                        reserved/colliding filenames.</li>
+                </ul>
+                <p>Uploads are validated immediately: empty splits, non-numeric features, invalid labels, or fewer than
+                    two classes are rejected with a clear message. Very large archives may be refused by the server
+                    (HTTP 413). Once an upload passes, the dataset is available in the Datasets tab and in the
+                    custom-dataset selector in Experiment Setup.</p>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        Tabular CSV example (click to expand)</summary>
+                    <div class="doc-toggle-body px-3 pb-3">
+                        <pre class="text-xs text-slate-700 overflow-x-auto"><code>feat_1,feat_2,feat_3,label,split
+1.2,3.4,5.1,A,train
+0.8,2.1,4.2,B,train
+1.0,3.0,5.0,A,val
+0.7,1.9,4.1,B,val
+1.1,3.2,5.3,A,test
+0.9,2.2,4.4,B,test</code></pre>
+                        <p class="text-slate-700">Accepted split aliases are: <code>train</code>/<code>training</code>,
+                            <code>val</code>/<code>valid</code>/<code>validation</code>/<code>dev</code>, and
+                            <code>test</code>/<code>testing</code>. The split column header can be named
+                            <code>split</code>, <code>set</code>, or <code>partition</code>.</p>
+                        <p class="text-slate-700">The target column is detected by name (<code>label</code>,
+                            <code>target</code>, <code>class</code>, or <code>y</code>); if none is present, the last
+                            column is treated as the target. Every other column must be numeric. The dataset must
+                            contain at least two classes.</p>
+                    </div>
+                </details>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">NPZ
+                        image example (click to expand)</summary>
+                    <div class="doc-toggle-body px-3 pb-3">
+                        <pre class="text-xs text-slate-700 overflow-x-auto"><code># Required keys (option 1)
+train_images, train_labels,
+val_images, val_labels,
+test_images, test_labels
+
+# Or option 2
+x_train, y_train,
+x_val, y_val,
+x_test, y_test</code></pre>
+                        <p class="text-slate-700">Flat keys like only <code>images</code> and <code>labels</code> are
+                            rejected because the platform does not split user datasets automatically.</p>
+                    </div>
+                </details>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">ZIP
+                        image-folder example (click to expand)</summary>
+                    <div class="doc-toggle-body px-3 pb-3">
+                        <pre class="text-xs text-slate-700 overflow-x-auto"><code>dataset.zip
+└── root/
+    ├── train/
+    │   ├── class_a/
+    │   │   ├── img_001.png
+    │   │   └── img_002.png
+    │   └── class_b/
+    ├── val/
+    │   ├── class_a/
+    │   └── class_b/
+    └── test/
+        ├── class_a/
+        └── class_b/</code></pre>
+                        <p class="text-slate-700">Every split must contain the same class folders. The path to each
+                            image must be exactly <code>[wrapper/]split/class_name/image</code> with no extra folders in
+                            between. The archive is extracted and indexed once on upload, then reused on later runs.</p>
+                    </div>
+                </details>
+            </section>
+
+            <section id="chapter-default-networks" class="doc-chapter">
+                <h2 class="doc-h2">Default Network Architectures</h2>
+                <p>When <code>custom_model_mode</code> is <code>default</code>, the platform picks a built-in network
+                    for you based on the data: <code>TabularNet</code> for CSV/TSV datasets, and <code>Net</code> (a
+                    small CNN) for every image dataset (MedMNIST, FashionMNIST, CIFAR-10/100, NPZ, or ZIP folders).</p>
+                <p>What the default models expect:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-700">
+                    <li><strong>Default image model:</strong> image batches with integer labels. An adaptive pooling
+                        layer before the classifier normalizes the spatial size, so it handles both 28x28 (MedMNIST)
+                        and 32x32 (CIFAR) inputs. Images are converted to tensors and scaled, but not resized, so
+                        unusual image sizes may not fit.</li>
+                    <li><strong>Default tabular model:</strong> numeric feature vectors with integer labels.</li>
+                </ul>
+                <p>Simple mode always uses these defaults. If your data does not fit them (most often with ZIP image
+                    folders of unusual sizes), switch to Advanced mode and provide your own model. The exact code of
+                    both default networks is below for reference.</p>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        Default image architecture code (reference)</summary>
+                    <div class="doc-toggle-body px-3 pb-3">
+                        <pre class="text-xs text-slate-700 overflow-x-auto"><code>class Net(nn.Module):
+    def __init__(self, in_channels, num_classes):
+        super(Net, self).__init__()
+
+        self.layer1 = nn.Sequential(
+            nn.Conv2d(in_channels, 16, kernel_size=3),
+            nn.BatchNorm2d(16),
+            nn.ReLU())
+
+        self.layer2 = nn.Sequential(
+            nn.Conv2d(16, 16, kernel_size=3),
+            nn.BatchNorm2d(16),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2, stride=2))
+
+        self.layer3 = nn.Sequential(
+            nn.Conv2d(16, 64, kernel_size=3),
+            nn.BatchNorm2d(64),
+            nn.ReLU())
+
+        self.layer4 = nn.Sequential(
+            nn.Conv2d(64, 64, kernel_size=3),
+            nn.BatchNorm2d(64),
+            nn.ReLU())
+
+        self.layer5 = nn.Sequential(
+            nn.Conv2d(64, 64, kernel_size=3, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2, stride=2))
+
+        # Normalize the conv output to a fixed 4x4 map so the classifier accepts
+        # any input size (28x28 MedMNIST and 32x32 CIFAR alike).
+        self.avgpool = nn.AdaptiveAvgPool2d((4, 4))
+
+        self.fc = nn.Sequential(
+            nn.Linear(64 * 4 * 4, 128),
+            nn.ReLU(),
+            nn.Linear(128, 128),
+            nn.ReLU(),
+            nn.Linear(128, num_classes))
+
+    def forward(self, x):
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+        x = self.layer5(x)
+        x = self.avgpool(x)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+        return x</code></pre>
+                    </div>
+                </details>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        Default tabular architecture code (reference)</summary>
+                    <div class="doc-toggle-body px-3 pb-3">
+                        <pre class="text-xs text-slate-700 overflow-x-auto"><code>class TabularNet(nn.Module):
+    def __init__(self, in_features, num_classes):
+        super().__init__()
+        hidden = max(32, min(256, in_features * 2))
+        self.net = nn.Sequential(
+            nn.Linear(in_features, hidden),
+            nn.ReLU(),
+            nn.Linear(hidden, hidden),
+            nn.ReLU(),
+            nn.Linear(hidden, num_classes),
+        )
+
+    def forward(self, x):
+        if x.dim() > 2:
+            x = x.view(x.size(0), -1)
+        return self.net(x)</code></pre>
+                    </div>
+                </details>
+            </section>
+
+            <section id="chapter-custom-model" class="doc-chapter">
+                <h2 class="doc-h2">Custom Model Usage</h2>
+                <p>When the default networks do not fit your data, switch to Advanced mode and set the model source to
+                    inline Python code. Your code is validated before launch and rejected with a clear message if it
+                    does not meet the rules below.</p>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        Required items and constraints</summary>
+                    <div class="doc-toggle-body px-3 pb-3 text-slate-700 space-y-2">
+                        <p><strong>Mandatory symbol:</strong> define <code>MODEL_NAME</code> as a non-empty string.</p>
+                        <p><strong>Mandatory factory:</strong> define <code>build_model(n_channels, n_classes)</code>.</p>
+                        <p><strong>Factory contract:</strong> <code>build_model</code> must return a valid
+                            <code>torch.nn.Module</code> instance.</p>
+                        <p><strong>Valid syntax:</strong> the code must parse as Python.</p>
+                        <p><strong>Max size:</strong> 5 MB.</p>
+                        <p><strong>Blocked imports:</strong> <code>os</code>, <code>sys</code>,
+                            <code>subprocess</code>, <code>shutil</code>, <code>pathlib</code>,
+                            <code>socket</code>, <code>importlib</code>.</p>
+                        <p><strong>Blocked calls:</strong> <code>eval</code>, <code>exec</code>,
+                            <code>compile</code>, <code>__import__</code>.</p>
+                        <p>Custom models work with every method, including FedGP. Run a short pilot before a long
+                            experiment, since a missing dependency only shows up when training actually starts.</p>
+                    </div>
+                </details>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        Inline Python example (reference implementation)</summary>
+                    <div class="doc-toggle-body px-3 pb-3">
+                        <pre class="text-xs text-slate-700 overflow-x-auto"><code>import torch
+import torch.nn as nn
+
+MODEL_NAME = "CustomCNN16"
+
+class ModelImpl(nn.Module):
+    def __init__(self, n_channels, n_classes):
+        super().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(n_channels, 16, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(16, 32, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d((1, 1)),
+        )
+        self.classifier = nn.Linear(32, n_classes)
+
+    def forward(self, x):
+        x = self.features(x)
+        x = x.view(x.size(0), -1)
+        return self.classifier(x)
+
+def build_model(n_channels, n_classes):
+    return ModelImpl(n_channels, n_classes)</code></pre>
+                    </div>
+                </details>
+
+                <p>Your model code is saved with the run, so its results stay reproducible from History.</p>
+            </section>
+
+            <section id="chapter-scenarios" class="doc-chapter">
+                <h2 class="doc-h2">Scenario Management</h2>
+                <p>A scenario is a named, reusable preset of a full run setup. Unlike Save Defaults (which prefills the
+                    form automatically), a scenario is loaded on demand, so you can keep several side by side.</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-700">
+                    <li><strong>Load:</strong> fill the form from a saved scenario. Simple or Advanced mode is selected
+                        automatically to match it.</li>
+                    <li><strong>Save:</strong> store the current setup as a named scenario.</li>
+                    <li><strong>Import YAML:</strong> fill the form from an external YAML file. An optional
+                        <code>ui_mode: simple</code> or <code>ui_mode: advanced</code> line is respected if present.</li>
+                    <li><strong>Review before launch:</strong> the summary shows only the settings that apply to your
+                        chosen methods (for example, GP fields are hidden unless you use FedGP).</li>
+                </ul>
+            </section>
+
+            <section id="chapter-monitoring" class="doc-chapter">
+                <h2 class="doc-h2">Live Observability</h2>
+                <p>Live Monitor shows progress, metrics, and logs while a run is training. The metric cards report
+                    accuracy, loss, precision, recall, F1, and ROC AUC. They show the latest value at each point, not a
+                    final summary.</p>
+                <p>Validation metrics are always shown. Test metrics appear only for <code>train_val_test</code> runs.
+                    ROC AUC can read <code>N/A</code> when the data does not have enough class structure to compute it.</p>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        How each metric is computed</summary>
+                    <div class="doc-toggle-body px-3 pb-3 text-slate-700 space-y-2">
+                        <p>All metrics are reported on a 0 to 1 scale, computed on the evaluated split (validation, and
+                            test when enabled).</p>
+                        <p><strong>Accuracy:</strong> fraction of correctly classified samples.</p>
+                        <p><strong>Loss:</strong> cross-entropy, averaged over the samples in the split.</p>
+                        <p><strong>Precision, recall, F1:</strong> macro-averaged, meaning each class counts equally
+                            regardless of how many samples it has. This is the right choice for imbalanced data, but it
+                            penalizes rare classes that the model handles poorly.</p>
+                        <p><strong>ROC AUC:</strong> for two classes, the standard binary score; for more than two, the
+                            one-vs-rest average. It needs at least two classes present in the evaluated data, otherwise
+                            it shows <code>N/A</code>.</p>
+                    </div>
+                </details>
+            </section>
+
+            <section id="chapter-history" class="doc-chapter">
+                <h2 class="doc-h2">History and Comparison</h2>
+                <p>History is where you inspect finished runs, export them, and compare them. A run appears here as soon
+                    as it is submitted, before it has produced any results.</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-700">
+                    <li>Select <strong>one</strong> run to open its detail view and download its export.</li>
+                    <li>Select <strong>2 to 5</strong> runs and use Compare to chart them together.</li>
+                </ul>
+                <p>A single run's detail view shows its final validation and test values. A comparison highlights the
+                    best value reached for each metric, and only includes test metrics when every selected run has them.</p>
+                <p><strong>Repeated runs (repeat &gt; 1):</strong> the charts and final metric cards show the mean across
+                    repeats, and the detail view reports how many repeats ran. The summary table lists each repeat plus a
+                    Mean &plusmn; Std row, and the export ZIP contains the full per-repeat data (metrics, logs, and saved
+                    models), not just the average.</p>
+
+                <details class="mt-3 bg-blue-50 border border-blue-100 rounded-lg">
+                    <summary class="doc-toggle-summary px-3 py-2 text-xm font-semibold text-blue-900 cursor-pointer">
+                        What the export ZIP contains</summary>
+                    <div class="doc-toggle-body px-3 pb-3 text-slate-700 space-y-2">
+                        <p>Exporting a run downloads its full results folder, so you can analyze it outside the platform
+                            and keep a complete record:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><code>config.yaml</code>: the exact configuration the run used.</li>
+                            <li><code>metadata.json</code>: run metadata, including the resolved settings.</li>
+                            <li><code>metrics.json</code>: every metric for every round, for each evaluated split.</li>
+                            <li><code>global_model_&lt;round&gt;.pth</code>: the aggregated model saved after each round.</li>
+                            <li><code>train.log</code>: the full run log.</li>
+                            <li>class-distribution plots for the training data.</li>
+                        </ul>
+                        <p>For repeated runs, each repeat has its own <code>repeat_&lt;n&gt;/</code> folder with the same
+                            files, plus a top-level <code>summary_metrics.json</code> with the aggregate across repeats.</p>
+                    </div>
+                </details>
+            </section>
+
+            <section id="chapter-system" class="doc-chapter">
+                <h2 class="doc-h2">System Status</h2>
+                <p>System Status shows current hardware use and the run queue at a glance:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-700">
+                    <li><strong>Hardware:</strong> live CPU, RAM, and GPU usage.</li>
+                    <li><strong>Jobs:</strong> active and queued runs, with the actions you can take on them.</li>
+                    <li><strong>Per-run usage:</strong> average hardware usage for a finished run, in its detail view.</li>
+                </ul>
+            </section>
+
+            <section id="chapter-reproducibility" class="doc-chapter">
+                <h2 class="doc-h2">Reproducibility</h2>
+                <p>Each run is driven by its <code>seed</code>, which fixes the random parts of the experiment: how data
+                    is partitioned across clients, the training itself, and which clients drop out or rejoin each round.
+                    Two runs with the same configuration and the same seed follow the same random path. Repeats reuse
+                    the base seed plus the repeat index, so the repeats of one run are independent of each other but
+                    reproducible as a set.</p>
+                <p>The exported <code>config.yaml</code> and seed let anyone rebuild the exact setup of a run.</p>
+            </section>
+
+            <section id="chapter-troubleshooting" class="doc-chapter">
+                <h2 class="doc-h2">Troubleshooting</h2>
+                <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-700">
+                    <li><strong>Run does not start:</strong> check the validation messages on the Setup form for the
+                        field that needs fixing.</li>
+                    <li><strong>No live updates:</strong> confirm the run is still active in System Status, then reopen
+                        Live Monitor.</li>
+                    <li><strong>No comparison charts:</strong> select at least 2 runs.</li>
+                    <li><strong>Export unavailable:</strong> make sure the run has finished.</li>
+                </ul>
+                <p class="mt-4 text-sm font-semibold">When reporting an issue, include the Run ID, method, dataset, and
+                    evaluation mode.</p>
+            </section>
+        </article>
+    </section>
+</div>

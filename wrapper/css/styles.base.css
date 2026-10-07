@@ -1,0 +1,581 @@
+/* ── Animations ─────────────────────────────────────────────────────────── */
+
+:root {
+    --brand-navy: #0b2447;
+    --brand-navy-soft: #153b74;
+    --brand-ink: #0f172a;
+    --brand-muted: #5b6b83;
+    --brand-bg: #f5f9ff;
+    --brand-card: #fff;
+    --brand-border: #dbe7ff;
+    --brand-border-soft: #cbdaf4;
+    --surface-soft: #f8fbff;
+    --surface-soft-alt: #eef5ff;
+    --ink-soft: #334155;
+    --accent-blue: #1d4ed8;
+    --accent-teal: #0f766e;
+    --accent-teal-strong: #0d5f58;
+    --ui-font: 'Segoe UI', 'Helvetica Neue', 'Noto Sans', sans-serif;
+    --title-xl: 2rem;
+    --title-lg: 1.55rem;
+    --title-md: 1.15rem;
+    --text-body: 0.95rem;
+    --text-meta: 0.8rem;
+    --space-1: 0.35rem;
+    --space-2: 0.6rem;
+    --space-3: 0.9rem;
+    --space-4: 1.25rem;
+    --space-5: 1.6rem;
+    --radius-md: 0.6rem;
+    --radius-lg: 0.82rem;
+    --shadow-soft: 0 1px 2px rgb(15 23 42 / 5%), 0 10px 28px rgb(15 23 42 / 4.5%);
+    --shadow-soft-hover: 0 2px 5px rgb(15 23 42 / 8%), 0 14px 30px rgb(15 23 42 / 7%);
+    --transition-fast: 140ms ease;
+    --transition-base: 180ms ease;
+}
+
+html,
+body {
+    /* Nothing in the public pages should ever force a sideways scroll on the
+       whole document; wide elements (code blocks, tables) scroll inside their
+       own container instead. */
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--brand-bg);
+    color: var(--brand-ink);
+    font-family: var(--ui-font);
+    line-height: 1.45;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Global hierarchy and rhythm ───────────────────────────────────────── */
+
+h1,
+h2,
+h3 {
+    letter-spacing: -0.01em;
+}
+
+.app-shell main .tab-content>h1,
+.app-shell main .tab-content>div>h1 {
+    font-size: var(--title-xl) !important;
+    font-weight: 800 !important;
+    line-height: 1.15;
+    margin-bottom: var(--space-4) !important;
+}
+
+.app-shell main .tab-content h2,
+.doc-h1 {
+    font-size: var(--title-lg);
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.app-shell main .tab-content h3,
+.doc-h2,
+.metric-panel-title,
+.doc-nav-title {
+    font-size: var(--title-md);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.app-shell main .tab-content p,
+.doc-content-card p {
+    font-size: var(--text-body);
+}
+
+.app-shell main .tab-content .text-xs,
+.doc-nav-link,
+.metric-label {
+    font-size: var(--text-meta);
+}
+
+/* Proximity: cards and groups share a consistent rhythm */
+.app-shell main .tab-content {
+    width: min(1380px, 100%);
+    margin: 0 auto;
+    padding: 1.4rem 1.6rem !important;
+}
+
+.app-shell main .tab-content>.bg-slate-800,
+.app-shell main .tab-content>details,
+.app-shell main .tab-content>#hist-runs-table-wrap,
+.app-shell main .tab-content>#hist-summary,
+.app-shell main .tab-content>#hist-charts {
+    margin-bottom: var(--space-4) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.app-shell main .tab-content>.bg-slate-800:hover,
+.app-shell main .tab-content>details:hover,
+.app-shell main .tab-content>#hist-runs-table-wrap:hover,
+.app-shell main .tab-content>#hist-summary:hover,
+.app-shell main .tab-content>#hist-charts:hover {
+    box-shadow: var(--shadow-soft-hover);
+}
+
+.app-shell main details>summary {
+    padding-top: 0.72rem;
+    padding-bottom: 0.72rem;
+}
+
+.app-shell main .tab-content:not(.hidden) {
+    animation: tab-enter 0.2s ease-out;
+}
+
+/* Ensure hidden utility always wins even if component classes set display */
+.hidden {
+    display: none !important;
+}
+
+/* Global scrollbars */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #9db4dd #edf3ff;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #edf3ff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #95afd9, #7f9ac7);
+    border-radius: 9999px;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes tab-enter {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fade-in 0.25s ease-out;
+}
+
+/* ── Toast notifications ─────────────────────────────────────────────────── */
+
+.toast {
+    pointer-events: auto;
+    min-width: 260px;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-left: 4px solid;
+    background: rgb(15 23 42 / 95%);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgb(0 0 0 / 40%);
+    animation: fade-in 0.25s ease-out;
+}
+
+.toast-info {
+    border-color: #38bdf8;
+    color: #e2e8f0;
+}
+
+.toast-success {
+    border-color: #34d399;
+    color: #e2e8f0;
+}
+
+.toast-error {
+    border-color: #f87171;
+    color: #fca5a5;
+}
+
+.toast-warn {
+    border-color: #fbbf24;
+    color: #fde68a;
+}
+
+/* ── Log console ─────────────────────────────────────────────────────────── */
+
+#log-console {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    background: #0a0f1a;
+    color: #94a3b8;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    height: 240px;
+    min-height: 180px;
+    max-height: 520px;
+    overflow-y: auto;
+    resize: vertical;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+#log-console-wrap {
+    overflow: visible;
+}
+
+#log-console::-webkit-scrollbar {
+    width: 6px;
+}
+
+#log-console::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+#log-console::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 3px;
+}
+
+#log-console-wrap.hidden {
+    display: none;
+}
+
+/* ── Progress bar ────────────────────────────────────────────────────────── */
+
+.progress-track {
+    height: 6px;
+    background: #dce8fb;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--brand-navy-soft), #2563eb);
+    border-radius: 9999px;
+    transition: width 0.5s ease;
+}
+
+.progress-fill-client {
+    background: linear-gradient(90deg, #0f766e, #0891b2);
+}
+
+/* ── Sidebar nav tab active state ────────────────────────────────────────── */
+
+.nav-tab {
+    transition: background 0.15s, color 0.15s;
+}
+
+.nav-tab.active {
+    color: var(--brand-card) !important;
+    background: rgb(148 190 255 / 20%);
+}
+
+/* ── Form inputs (dark theme) ────────────────────────────────────────────── */
+
+.fl-input {
+    width: 100%;
+    background: var(--brand-card);
+    border: 1px solid var(--brand-border-soft);
+    border-radius: var(--radius-md);
+    min-height: 2.35rem;
+    padding: 0.53rem 0.75rem;
+    color: var(--brand-ink);
+    font-size: 0.875rem;
+    line-height: 1.35;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.fl-input::placeholder {
+    color: #64748b;
+}
+
+.fl-input:hover:not(:disabled) {
+    border-color: #b8cae9;
+}
+
+.fl-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgb(59 130 246 / 16%);
+}
+
+.fl-input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+textarea.fl-input {
+    min-height: 2.6rem;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+summary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(37 99 235 / 45%);
+}
+
+/* Tiny hover-help icon next to field labels */
+.label-with-help {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    overflow: visible;
+}
+
+.help-dot {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    width: 0.95rem;
+    height: 0.95rem;
+    padding: 0;
+    border-radius: 9999px;
+    border: 1px solid #475569;
+    color: #94a3b8;
+    font-size: 0.62rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: help;
+    user-select: none;
+    transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.help-dot:hover,
+.help-dot:focus-visible {
+    border-color: #2563eb;
+    color: #1d4ed8;
+    outline: none;
+}
+
+.landing-desktop-nav {
+    display: flex;
+}
+
+.landing-mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .landing-desktop-nav {
+        display: none;
+    }
+
+    .landing-mobile-menu-btn {
+        display: inline-flex;
+    }
+}
+
+.app-shell>aside.app-sidebar {
+    position: relative;
+    z-index: 10;
+}
+
+.app-shell main {
+    position: relative;
+    z-index: 30;
+}
+
+.help-popover {
+    position: fixed;
+    z-index: 20000;
+    max-width: min(360px, calc(100vw - 16px));
+    min-width: 140px;
+    padding: 0.45rem 0.55rem;
+    border-radius: 0.4rem;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: #cbd5e1;
+    font-size: 0.69rem;
+    font-weight: 500;
+    line-height: 1.35;
+    text-align: left;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 45%);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity 0.14s ease, transform 0.14s ease;
+}
+
+.help-popover.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── <details> accordion ─────────────────────────────────────────────────── */
+
+details>summary {
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+}
+
+.app-shell main details>summary {
+    justify-content: flex-start !important;
+    gap: 0.45rem;
+}
+
+.app-shell main details>summary .chevron {
+    order: -1;
+}
+
+details>summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] .chevron {
+    transform: rotate(90deg);
+}
+
+.chevron {
+    transition: transform 0.2s;
+}
+
+/* ── Chart container ─────────────────────────────────────────────────────── */
+
+.chart-box {
+    position: relative;
+    height: 262px;
+    background: #fcfdff;
+    border: 1px solid #dce8fb;
+    border-radius: 0.72rem;
+    padding: 0.45rem;
+}
+
+.ui-stat-card,
+.metric-card {
+    background: #f8fbff;
+    border: 1px solid #dce8fb;
+    border-radius: 0.65rem;
+    padding: 0.62rem 0.72rem;
+}
+
+.metric-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.3rem;
+    min-height: 4.75rem;
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #355077;
+    font-weight: 700;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+.metric-value {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #10233f;
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.metric-panel {
+    background: #fdfefe;
+    border: 1px solid #deebff;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+}
+
+.metric-panel-title {
+    font-size: 0.73rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: #294873;
+    margin-bottom: 0.55rem;
+}
+
+/* ── Runs table ──────────────────────────────────────────────────────────── */
+
+.runs-table td,
+.runs-table th {
+    padding: 0.625rem 1rem;
+    font-size: 0.83rem;
+}
+
+.runs-table th {
+    letter-spacing: 0.01em;
+}
+
+.runs-table tbody tr {
+    transition: background-color var(--transition-fast);
+}
+
+.runs-table tbody tr:hover {
+    background: rgb(255 255 255 / 2.5%);
+}
+
+.app-shell main .runs-table tbody tr:hover {
+    background: #eef4ff;
+}
+
+.app-shell main .runs-table tbody tr.hist-row-selected {
+    background: #dbeafe;
+}
+
+.app-shell main .runs-table tbody tr.hist-row-disabled {
+    opacity: 0.6;
+}
+
+.app-shell main .runs-table tbody tr.hist-row-disabled td {
+    cursor: not-allowed;
+}
+
+/* ── Status badges ───────────────────────────────────────────────────────── */
+
+/* ── Layout theme: white content + dark-blue sidebar ───────────────────── */
+
+.app-shell>aside.app-sidebar {
+    background: linear-gradient(180deg, #0b2447, #102f58);
+    color: #d8e5ff;
+}
+
+#auth-link-docs,
+#auth-link-creators,
+#auth-link-support {
+    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#auth-link-docs:hover,
+#auth-link-creators:hover,
+#auth-link-support:hover {
+    color: #f8fbff;
+    background: rgb(255 255 255 / 12%) !important;
+    box-shadow: inset 0 0 0 1px rgb(191 219 254 / 25%);
+}

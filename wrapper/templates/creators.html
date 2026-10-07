@@ -1,0 +1,202 @@
+<div class="landing-shell min-h-screen bg-blue-50 text-slate-900">
+    <header class="sticky top-0 z-40 bg-blue-100 border-b border-blue-200">
+        <div class="w-full px-6 lg:px-10 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 text-blue-950">
+                <img src="/wrapper/images/logo.png" alt="FASTER logo" class="w-7 h-7 object-contain">
+                <span class="text-lg font-bold tracking-tight">FASTER</span>
+            </div>
+            <div class="ml-auto landing-desktop-nav items-center gap-7">
+                <nav class="flex items-center gap-4 md:gap-7 text-sm font-medium text-slate-600 flex-wrap justify-end">
+                    <a href="/Faster/Documentation" class="hover:text-blue-800 transition-colors">Documentation</a>
+                    <a href="/Faster/Creators" class="text-blue-800 font-semibold">Creators</a>
+                    <a href="/Faster/Contribute" class="hover:text-blue-800 transition-colors">Contribute</a>
+                </nav>
+                <a href="/Faster/Signin" class="ui-btn-compact ui-btn-primary public-nav-cta">Access Workspace</a>
+            </div>
+            <button id="landing-mobile-menu-btn" class="landing-mobile-menu-btn ui-btn-primary public-nav-mobile">Menu</button>
+        </div>
+        <div id="landing-mobile-menu-panel" class="hidden md:hidden px-4 pb-3">
+            <div class="bg-white border border-blue-100 rounded-lg p-2 space-y-1 text-sm">
+                <a href="/Faster/Documentation" class="block px-3 py-2 rounded hover:bg-blue-50">Documentation</a>
+                <a href="/Faster/Creators" class="block px-3 py-2 rounded text-blue-900 font-semibold hover:bg-blue-50">Creators</a>
+                <a href="/Faster/Contribute" class="block px-3 py-2 rounded hover:bg-blue-50">Contribute</a>
+                <a href="/Faster/Signin" class="block px-3 py-2 rounded text-blue-900 font-semibold hover:bg-blue-50">Access Workspace</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="w-full px-6 lg:px-10 py-8 doc-layout">
+
+        <!-- ── Sidebar nav ─────────────────────────────────────────────── -->
+        <aside class="doc-nav-card">
+            <p class="doc-nav-title">Table of Contents</p>
+            <a href="/Faster/Creators/chapter-teams" class="doc-nav-link">Research Groups</a>
+            <a href="/Faster/Creators/chapter-members" class="doc-nav-link">Team Members</a>
+        </aside>
+
+        <!-- ── Main content ────────────────────────────────────────────── -->
+        <article class="doc-content-card">
+
+            <!-- Hero -->
+            <section class="doc-chapter">
+                <h1 class="doc-h1">Creators</h1>
+                <p>FASTER is a joint effort across research groups and academic institutions, combining expertise in distributed intelligence, federated learning, evolutionary computation, and trustworthy AI systems.</p>
+            </section>
+
+            <!-- ── Research Groups ─────────────────────────────────────── -->
+            <section id="chapter-teams" class="doc-chapter">
+                <h2 class="doc-h2">Research Groups</h2>
+                <p class="lab-meta-note">FASTER bridges applied AI research at <strong>HIST Lab</strong> (HES-SO Valais-Wallis, Switzerland) and evolutionary computation at <strong>GEA Group</strong> (Universidad de Extremadura, Spain), enabling cross-institutional collaboration on federated learning validation.</p>
+
+                <div class="mt-5 flex flex-wrap gap-3">
+                    <a href="https://histlab.hevs.ch/" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-4 py-2.5 text-sm font-semibold text-blue-900 shadow-sm transition-colors hover:bg-blue-50 hover:border-blue-300">
+                        <i class="ph ph-arrow-square-out text-base"></i>
+                        Visit HIST Lab
+                    </a>
+                    <a href="https://grupogea.unex.es/" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-4 py-2.5 text-sm font-semibold text-blue-900 shadow-sm transition-colors hover:bg-blue-50 hover:border-blue-300">
+                        <i class="ph ph-arrow-square-out text-base"></i>
+                        Visit GEA Group
+                    </a>
+                </div>
+
+                <div class="team-overview-grid mt-5">
+
+                    <!-- HIST Lab -->
+                    <article class="team-overview-card">
+                        <div class="lab-branding-panel" aria-label="HIST Lab and HES-SO branding">
+                            <div class="lab-branding-item">
+                                <img src="/wrapper/images/brands/histlab.svg" alt="HIST Lab Logo" class="lab-logo" />
+                                <p class="lab-branding-caption">HIST Lab</p>
+                            </div>
+                            <div class="lab-branding-item">
+                                <img src="/wrapper/images/brands/hes_so.png" alt="HES-SO Logo" class="lab-logo" />
+                                <p class="lab-branding-caption">HES-SO Valais-Wallis</p>
+                            </div>
+                        </div>
+                        <h3 class="team-overview-title mt-3">HIST Lab</h3>
+                        <p class="lab-description">The HIST Lab (Hybrid Intelligent and truStworthy ecosysTems) focuses on hybrid and distributed intelligent systems operating in complex cross-disciplinary domains. The lab investigates how learning-based models, symbolic reasoning, autonomous agents, and human actors can be integrated to support reliable and transparent decision-making.
+                                                    HIST Lab centers on trustworthy-by-design approaches, where explainability, governance, and accountability are treated as core system properties. Through both foundational and applied research, the lab contributes methods and frameworks for building intelligent ecosystems that remain understandable, controllable, and aligned with human requirements and values.</p>
+                        <p class="lab-meta-note">Part of <strong>University of Applied Sciences and Arts Western Switzerland</strong> (HES-SO Valais-Wallis).</p>
+                    </article>
+
+                    <!-- GEA Group -->
+                    <article class="team-overview-card">
+                        <div class="lab-branding-panel" aria-label="GEA Group and Universidad de Extremadura branding">
+                            <div class="lab-branding-item">
+                                <img src="/wrapper/images/brands/gea.png" alt="GEA Group Logo" class="lab-logo" />
+                                <p class="lab-branding-caption">GEA Group</p>
+                            </div>
+                            <div class="lab-branding-item">
+                                <img src="/wrapper/images/brands/uex.png" alt="Universidad de Extremadura Logo" class="lab-logo" />
+                                <p class="lab-branding-caption">UEX</p>
+                            </div>
+                        </div>
+                        <h3 class="team-overview-title mt-3">GEA Group</h3>
+                        <p class="lab-description">The Artificial Evolution Group at the University of Extremadura is a multidisciplinary group dedicated to the development and application of Evolutionary Computation in combination with parallel and distributed computing, with a particular focus on computational creativity: art and music. The group has several research areas centered on agriculture, health, artistic design, music, and the study of energy efficiency, all approached through computational intelligence. Among the publicly available projects, Sharpmony is used by Music Conservatories, their teachers, and students: more than 4800 users have already registered. Sharpmony allows SATB harmonization by evolutionary means. The group leader, FFV, has advised PhD students from Spain, Portugal, Italy, and Mexico. Members of the group have won: EvoHot best paper 2006; ACM GECCO Art Design and Creativity Competition 2013; Best PhD student paper at ACM Gecco 2012; nominated as Outstanding student Evostar 2024 and 2026. Very recently, they have entered the Federated Learning field with applications to optical music recognition.</p>
+                        <p class="lab-meta-note">Part of <strong>Universidad de Extremadura</strong> (UEx).</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- ── Team Members ────────────────────────────────────────── -->
+            <section id="chapter-members" class="doc-chapter">
+                <h2 class="doc-h2">Team Members</h2>
+                <div class="creator-grid">
+
+                    <!-- Valerio Crocetti -->
+                    <article class="creator-card">
+                        <img src="/wrapper/images/creators/vc.jpg" alt="Valerio Crocetti" class="profile-img">
+                        <h3 class="creator-name">Valerio Crocetti</h3>
+                        <p class="creator-role">Research Assistant</p>
+                        <div class="creator-membership-tags">
+                            <span class="creator-tag">HIST Lab</span>
+                            <span class="creator-tag creator-tag-muted">HES-SO Valais-Wallis</span>
+                        </div>
+                        <div class="creator-links">
+                            <!-- Google Scholar -->
+                            <a href="https://scholar.google.com/citations?user=vWtCSYIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm0 14L5 13.18V16c0 2.76 3.13 5 7 5s7-2.24 7-5v-2.82L12 17Z"/></svg></a>
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/valerio-crocetti-7737a1342/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 18.4h2.68V9.75H5.6V18.4Zm4.35 0h2.57v-4.67c0-1.23.23-2.42 1.76-2.42 1.5 0 1.52 1.4 1.52 2.5v4.59h2.57V13.3c0-2.46-.53-4.35-3.4-4.35a2.98 2.98 0 0 0-2.68 1.47h-.04V9.75H9.95c.03.71 0 8.65 0 8.65Z"/></svg></a>
+                            <!-- GitHub -->
+                            <a href="https://github.com/Pryce22" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="creator-link-btn creator-link-github"><svg viewBox="0 0 16 16" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 4.84c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+                            <!-- ResearchGate -->
+                            <a href="https://www.researchgate.net/profile/Valerio-Crocetti" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M4.5 5h5.92c3.09 0 4.86 1.59 4.86 4.22 0 1.95-1.1 3.37-2.92 3.9l3.22 5.88h-2.8l-2.95-5.56H7.1V19H4.5V5Zm2.6 2.19v4.08h3.04c1.63 0 2.48-.75 2.48-2.04 0-1.3-.86-2.04-2.48-2.04H7.1Z"/></svg></a>
+                            <!-- Email -->
+                            <a href="mailto:valerio.crocetti@hevs.ch" aria-label="Email" class="creator-link-btn creator-link-email"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.8.05 6.8 5.1a.7.7 0 0 0 .84 0l6.76-5.1H4.8Zm14.8 1.75-6.32 4.76a2.1 2.1 0 0 1-2.56 0L4.4 8.55v8.7a.35.35 0 0 0 .35.35h14.5a.35.35 0 0 0 .35-.35v-8.7Z"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- Elia Pacioni -->
+                    <article class="creator-card">
+                        <img src="/wrapper/images/creators/ep.jpg" alt="Elia Pacioni" class="profile-img">
+                        <h3 class="creator-name">Elia Pacioni</h3>
+                        <p class="creator-role">Research Assistant</p>
+                        <div class="creator-membership-tags">
+                            <span class="creator-tag">HIST Lab</span>
+                            <span class="creator-tag">GEA Group</span>
+                            <span class="creator-tag creator-tag-muted">HES-SO Valais-Wallis</span>
+                            <span class="creator-tag creator-tag-muted">Universidad de Extremadura</span>
+                        </div>
+                        <div class="creator-links">
+                            <a href="https://scholar.google.com/citations?user=YCBmlbUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm0 14L5 13.18V16c0 2.76 3.13 5 7 5s7-2.24 7-5v-2.82L12 17Z"/></svg></a>
+                            <a href="https://www.linkedin.com/in/elia-pacioni/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 18.4h2.68V9.75H5.6V18.4Zm4.35 0h2.57v-4.67c0-1.23.23-2.42 1.76-2.42 1.5 0 1.52 1.4 1.52 2.5v4.59h2.57V13.3c0-2.46-.53-4.35-3.4-4.35a2.98 2.98 0 0 0-2.68 1.47h-.04V9.75H9.95c.03.71 0 8.65 0 8.65Z"/></svg></a>
+                            <a href="https://github.com/pacio5" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="creator-link-btn creator-link-github"><svg viewBox="0 0 16 16" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 4.84c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+                            <a href="https://www.researchgate.net/profile/Elia-Pacioni" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M4.5 5h5.92c3.09 0 4.86 1.59 4.86 4.22 0 1.95-1.1 3.37-2.92 3.9l3.22 5.88h-2.8l-2.95-5.56H7.1V19H4.5V5Zm2.6 2.19v4.08h3.04c1.63 0 2.48-.75 2.48-2.04 0-1.3-.86-2.04-2.48-2.04H7.1Z"/></svg></a>
+                            <a href="mailto:elia.pacioni@hevs.ch" aria-label="Email" class="creator-link-btn creator-link-email"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.8.05 6.8 5.1a.7.7 0 0 0 .84 0l6.76-5.1H4.8Zm14.8 1.75-6.32 4.76a2.1 2.1 0 0 1-2.56 0L4.4 8.55v8.7a.35.35 0 0 0 .35.35h14.5a.35.35 0 0 0 .35-.35v-8.7Z"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- Francisco Fernandez de Vega -->
+                    <article class="creator-card">
+                        <img src="/wrapper/images/creators/ffv.jpg" alt="Francisco Fernandez de Vega" class="profile-img">
+                        <h3 class="creator-name">Francisco Fernandez de Vega</h3>
+                        <p class="creator-role">Full Professor</p>
+                        <div class="creator-membership-tags">
+                            <span class="creator-tag">GEA Group</span>
+                            <span class="creator-tag creator-tag-muted">Universidad de Extremadura</span>
+                        </div>
+                        <div class="creator-links">
+                            <a href="https://scholar.google.com/citations?user=dCyqItcAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm0 14L5 13.18V16c0 2.76 3.13 5 7 5s7-2.24 7-5v-2.82L12 17Z"/></svg></a>
+                            <a href="https://www.linkedin.com/in/francisco-fern%C3%A1ndez-de-vega-bbaa6a2a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 18.4h2.68V9.75H5.6V18.4Zm4.35 0h2.57v-4.67c0-1.23.23-2.42 1.76-2.42 1.5 0 1.52 1.4 1.52 2.5v4.59h2.57V13.3c0-2.46-.53-4.35-3.4-4.35a2.98 2.98 0 0 0-2.68 1.47h-.04V9.75H9.95c.03.71 0 8.65 0 8.65Z"/></svg></a>
+                            <a href="https://www.researchgate.net/profile/Francisco-Vega-3" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M4.5 5h5.92c3.09 0 4.86 1.59 4.86 4.22 0 1.95-1.1 3.37-2.92 3.9l3.22 5.88h-2.8l-2.95-5.56H7.1V19H4.5V5Zm2.6 2.19v4.08h3.04c1.63 0 2.48-.75 2.48-2.04 0-1.3-.86-2.04-2.48-2.04H7.1Z"/></svg></a>
+                            <a href="mailto:fcofdez@unex.es" aria-label="Email" class="creator-link-btn creator-link-email"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.8.05 6.8 5.1a.7.7 0 0 0 .84 0l6.76-5.1H4.8Zm14.8 1.75-6.32 4.76a2.1 2.1 0 0 1-2.56 0L4.4 8.55v8.7a.35.35 0 0 0 .35.35h14.5a.35.35 0 0 0 .35-.35v-8.7Z"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- Davide Calvaresi -->
+                    <article class="creator-card">
+                        <img src="/wrapper/images/creators/dc.jpg" alt="Davide Calvaresi" class="profile-img">
+                        <h3 class="creator-name">Davide Calvaresi</h3>
+                        <p class="creator-role">Associate Professor</p>
+                        <div class="creator-membership-tags">
+                            <span class="creator-tag">HIST Lab</span>
+                            <span class="creator-tag creator-tag-muted">HES-SO Valais-Wallis</span>
+                        </div>
+                        <div class="creator-links">
+                            <a href="https://scholar.google.com/citations?user=n1TS5xsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm0 14L5 13.18V16c0 2.76 3.13 5 7 5s7-2.24 7-5v-2.82L12 17Z"/></svg></a>
+                            <a href="https://www.linkedin.com/in/davidecalvaresi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 18.4h2.68V9.75H5.6V18.4Zm4.35 0h2.57v-4.67c0-1.23.23-2.42 1.76-2.42 1.5 0 1.52 1.4 1.52 2.5v4.59h2.57V13.3c0-2.46-.53-4.35-3.4-4.35a2.98 2.98 0 0 0-2.68 1.47h-.04V9.75H9.95c.03.71 0 8.65 0 8.65Z"/></svg></a>
+                            <a href="https://github.com/rejectron" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="creator-link-btn creator-link-github"><svg viewBox="0 0 16 16" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 4.84c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+                            <a href="https://www.researchgate.net/profile/Davide-Calvaresi" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate" class="creator-link-btn"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M4.5 5h5.92c3.09 0 4.86 1.59 4.86 4.22 0 1.95-1.1 3.37-2.92 3.9l3.22 5.88h-2.8l-2.95-5.56H7.1V19H4.5V5Zm2.6 2.19v4.08h3.04c1.63 0 2.48-.75 2.48-2.04 0-1.3-.86-2.04-2.48-2.04H7.1Z"/></svg></a>
+                            <a href="mailto:davide.calvaresi@hevs.ch" aria-label="Email" class="creator-link-btn creator-link-email"><svg viewBox="0 0 24 24" class="creator-link-icon" aria-hidden="true"><path fill="currentColor" d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.8.05 6.8 5.1a.7.7 0 0 0 .84 0l6.76-5.1H4.8Zm14.8 1.75-6.32 4.76a2.1 2.1 0 0 1-2.56 0L4.4 8.55v8.7a.35.35 0 0 0 .35.35h14.5a.35.35 0 0 0 .35-.35v-8.7Z"/></svg></a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- ── Affiliation footer ──────────────────────────────────── -->
+            <section class="doc-chapter">
+                <div class="flex flex-wrap items-center gap-4 pt-2 border-t border-blue-100">
+                    <img src="/wrapper/images/brands/histlab.svg" alt="HIST Lab" class="h-7 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="/wrapper/images/brands/hes_so.png" alt="HES-SO" class="h-7 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="/wrapper/images/brands/gea.png" alt="GEA Group" class="h-7 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="/wrapper/images/brands/uex.png" alt="Universidad de Extremadura" class="h-7 opacity-70 hover:opacity-100 transition-opacity">
+                </div>
+            </section>
+
+        </article>
+    </section>
+</div>
